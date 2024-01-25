@@ -69,6 +69,7 @@ export function resolvePage(pages, rawPath, base) {
     rawPath = resolvePath(rawPath, base)
   }
   const path = normalize(rawPath)
+  console.log(`lx test rawPath=${rawPath};\n and normalized path = ${path}; \n and pages = ;`)
   for (let i = 0; i < pages.length; i++) {
     if (normalize(pages[i].regularPath) === path) {
       return Object.assign({}, pages[i], {

@@ -177,9 +177,9 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
 
     }
   })
-  log(chalk.yellow(`lx过滤前所有的sidebar数据 "${sidebar}"`));
+  // log(chalk.yellow(`lx过滤前所有的sidebar数据 "${sidebar}"`));
   sidebar = sidebar.filter(item => item !== null && item !== undefined);
-  log(chalk.yellow(`lx过滤后所有的sidebar数据 "${sidebar}"`));
+  // log(chalk.yellow(`lx过滤后所有的sidebar数据 "${sidebar}"`));
   return {
     sidebar,
     catalogueData

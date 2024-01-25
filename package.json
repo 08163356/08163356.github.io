@@ -1,14 +1,16 @@
 {
   "name": "theme-vdoing-blog",
   "version": "1.0.0",
-
   "scripts": {
+    "dev:lxdev": "node --max_old_space_size=8192 ./node_modules/vuepress/vuepress.js dev docs",
+    "build:lxbuild": "node --max_old_space_size=8192 vuepress build docs",
+    "build:lxb": "node --max_old_space_size=8192 ./node_modules/vuepress/cli.js build docs",
+    "dev:test": "node -max_old_space_size=8192 ./node_modules/vuepress/cli.js dev docs",
+    "build:test": "vuepress build docs",
     "dev": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
     "dev:win": "set NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
-    "dev:test": "vuepress dev docs",
     "build:win": "set NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
-    "build:test": "vuepress build docs",
     "predev": "node utils/check.js dev && vdoing",
     "prebuild": "node utils/check.js build && vdoing",
     "deploy": "bash deploy.sh",
@@ -29,7 +31,8 @@
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
     "json2yaml": "^1.1.0",
-    "vuepress": "1.9.9",
+    "vue-router": "^3.4.7",
+    "vuepress": "1.9.10",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1",
     "vuepress-plugin-comment": "^0.7.3",
@@ -39,8 +42,8 @@
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.12.9",
     "vuepress-theme-resume": "^1.0.1",
+    "vuepress-theme-vdoing": "^1.12.9",
     "yamljs": "^0.3.0"
   }
 }
