@@ -24,6 +24,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   },
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
 
+  base: '/aXingknowledgeRepo_3080/',
   // 主题配置
   themeConfig: {
     // 导航配置
@@ -34,12 +35,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {text: '计算机科学技术', link:'/web/'},
-          // {text: '前端工程化', link:'/pages/bdda9b/'},
+          {text: '前端工程化', link:'/pages/bdda9b/'},
           // {text: '前端知识总结', link:'/pages/e05dce83e5129785/'},
           // {text: '浏览器知识', link:'/pages/742579/'},
-          // {text: '前端三件套', link:'/pages/742579/'},
-          // {text: '性能优化', link:'/pages/43a636/'},
-          // {text: 'vue知识', link:'/pages/6ad8d5/'},
+          {text: '前端三件套', link:'/pages/044aeb/'},
+          {text: '性能优化', link:'/pages/4ba86f/'},
+          {text: 'vue2/vue3', link:'/pages/c5f8c8/'},
 
 
           // { text: 'bug解决'    , link: "/pages/73db19/" },
