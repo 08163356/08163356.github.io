@@ -35,8 +35,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {text: '计算机科学技术', link:'/web/'},
-          {text: '前端工程化', link:'/pages/bdda9b/'},
-          // {text: '前端知识总结', link:'/pages/e05dce83e5129785/'},
+          {text: '前端工程化', link:'/pages/1f8c4b/'},
+          {text: '前端知识总结', link:'/pages/3c61f1/'},
           // {text: '浏览器知识', link:'/pages/742579/'},
           {text: '前端三件套', link:'/pages/044aeb/'},
           {text: '性能优化', link:'/pages/4ba86f/'},
@@ -108,7 +108,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '书籍',
         link: '/ui/',
         items: [
-          { text: '书籍笔记导航', link: '/pages/3e260f/' },
+          { text: '书籍笔记导航', link: '/pages/d9db23/' },
           // { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
         ],
       },
@@ -208,10 +208,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      // avatar: 'https://jsd.cdn.zzko.cn/gh/xugaoyi/image_store/blog/20200103123203.jpg',
-      avatar: '/img/avtar.png',
+      avatar: 'https://github.com/08163356/aXingknowledgeRepo_3080/blob/gh-pages/img/avtar.png',
+      // avatar: '/img/avtar.png',
       name: 'aXing',
-      slogan: '计算机界的幼儿园学生',
+      slogan: '终身学习',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
