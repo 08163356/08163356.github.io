@@ -27,6 +27,7 @@ author:
 const int maxSize=50;
 enum bool{false,true};
 template<class T>
+<!-- more -->
 class Stack{
 public:
     Stack(){};

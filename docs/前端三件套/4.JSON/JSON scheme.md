@@ -27,6 +27,7 @@ JSON Schema  通过JSON定义了一套JSON数据需要满足的规范，包含�
 
 {
         "city" : "chicago", 
+<!-- more -->
         "number": 20, 
         "user" : {
             "name":"Alex", 

@@ -67,7 +67,7 @@ features: # 可选的
 </html>
 <script>
   var box = document.getElementById('vanilla-box')
-  box.innerHTML = 'Hello World! Welcome to EB'
+  box.innerHTML = 'Hello World! Welcome to aXing'
 </script>
 <style>
 #vanilla-box {
@@ -80,8 +80,8 @@ features: # 可选的
 
 ## :email: 联系
 
-- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>2537334510</a>
-- **Email**: <a href="mailto:894072666@qq.com">2537334510@qq.com</a>
+- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>zkf91888</a>
+- **Email**: <a href="mailto:2537334510@qq.com">2537334510@qq.com</a>
 - **GitHub**: <https://github.com/08163356>
 
 </br>  -->

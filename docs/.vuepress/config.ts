@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'xugaoyi.com' // 域名 (不带https)
+const DOMAIN_NAME = 'axing.com' // 域名 (不带https)
 const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
@@ -34,39 +34,48 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '技术',
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
-          {text: '计算机科学技术', link:'/web/'},
-          {text: '前端工程化', link:'/pages/1f8c4b/'},
-          {text: '前端知识总结', link:'/pages/3c61f1/'},
-          // {text: '浏览器知识', link:'/pages/742579/'},
-          {text: '前端三件套', link:'/pages/044aeb/'},
-          {text: '性能优化', link:'/pages/4ba86f/'},
-          {text: 'vue2/vue3', link:'/pages/c5f8c8/'},
-
-
-          // { text: 'bug解决'    , link: "/pages/73db19/" },
-          // { text: 'C++'        , link: "/pages/502c29/" },
-          // { text: 'git'        , link: "/pages/d2b03f/" },
-          // { text: 'go'         , link: "/pages/d2b04f/" },
-          // { text: 'JIRA'       , link: "/pages/d2b05f/" },
-          // { text: 'python'     , link: "/pages/d2b025f/" },
-          // { text: '专利想法'   , link: "/pages/d2b07f/" },
-          // { text: '公司总结'   , link: "/pages/d2b08f/" },
-          // { text: '前端'       , link: "/pages/d2b09f/" },
-          // { text: '性能优化'   , link: "/pages/d2b010f/" },
-          // { text: '操作系统'   , link: "/pages/d2b011f/" },
-          // { text: '数据分析'   , link: "/pages/d2b012f/" },
-          // { text: '数据库'     , link: "/pages/d2b013f/" },
-          // { text: '数据结构'   , link: "/pages/d2b014f/" },
-          // { text: '新技术探索' , link: "/pages/d2b015f/" },
-          // { text: '正则表达式' , link: "/pages/d2b016f/" },
-          // { text: '知识库搭建' , link: "/pages/d2b017f/" },
-          // { text: '算法'       , link: "/pages/d2b018f/" },
-          // { text: '解决技巧'   , link: "/pages/d2b019f/" },
-          // { text: '计算机网络' , link: "/pages/d2b020f/" },
-          // { text: '设计模式'   , link: "/pages/d2b021f/" },
-          // { text: '资料汇总'   , link: "/pages/d2b022f/" },
-          // { text: '需求解决'   , link: "/pages/d2b023f/" },
-          // { text: '面试总结'   , link: "/pages/d2b024f/" },
+          {
+            text: '前端知识',
+            items: [
+              {text: '前端工程化', link:'/pages/1f8c4b/'},
+              {text: '前端知识总结', link:'/pages/3c61f1/'},
+              {text: '性能优化', link:'/pages/4ba86f/'},
+              {text: 'vue2/vue3', link:'/pages/c5f8c8/'},
+            ],
+          },
+          {
+            text: '程序语言',
+            items: [
+              {text: 'HTML/CSS/JS', link:'/pages/044aeb/'},
+              {text: 'TypeScript', link:'/pages/438513/'},
+              {text: 'ES6', link:'/pages/259edc/'},
+              { text: 'C++', link: "/pages/c25d99/" },
+              // { text: 'go', link: "/pages//" },
+              { text: 'JIRA', link: "/pages/9bef21/" },
+              { text: 'python', link: "/pages/8d0a46/" },
+            ],
+          },
+          {
+            text: '计算机技术',
+            link:'/web/',
+            items: [
+              { text: '操作系统', link: "/pages/fecf27/" },
+              { text: '数据结构与算法', link: "/pages/2c06db/" },
+              { text: '计算机网络', link: "/pages/6f90e7/" },
+              { text: '设计模式', link: "/pages/ad34e7/" },
+            ]
+          },
+          {
+            text: '其他',
+            items: [
+              { text: 'git知识', link: "/pages/8292d8/" },
+              { text: 'android', link: "/pages/e590b4/" },
+              { text: 'bug解决', link: "/pages//" },
+              { text: '脚本汇总', link: "/pages//" },
+              { text: '专利想法', link: "/pages//" },
+              { text: '正则表达式', link: "/pages/bc90a4/" },
+            ],
+          },
         ],
         //items: [
         //  // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
@@ -108,18 +117,19 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '书籍',
         link: '/ui/',
         items: [
-          { text: '书籍笔记导航', link: '/pages/d9db23/' },
+          { text: '阅读笔记', link: '/pages/d9db23/' },
+          { text: '阅读摘抄', link: '/pages/cc91aa/' },
           // { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
         ],
       },
       {
-        text: '生活',
+        text: '生活（todo）',
         link: '/technology/',
         items: [
-          // { text: '各种活动', link: '/pages/9a7ee40fc232253e/' },
-          // { text: '生活碎片', link: '/pages/4c778760be26d8b3/' },
-          // { text: '随笔感悟', link: '/pages/117708e0af7f0bd9/' },
-          // { text: '兴趣爱好', link: '/pages/41f87d890d0a02af/' },
+          { text: '各种活动', link: '/pages/9a7ee40fc232253e/' },
+          { text: '生活碎片', link: '/pages/4c778760be26d8b3/' },
+          { text: '随笔感悟', link: '/pages/117708e0af7f0bd9/' },
+          { text: '兴趣爱好', link: '/pages/41f87d890d0a02af/' },
         ],
       },
       {
@@ -137,11 +147,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         text: '收藏',
         link: '/pages/beb6c0bd8a66cea6/',
-        // items: [
-        //   { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
-        //   { text: '资源', link: '/pages/eee83a9211a70f9d/' },
-        //   { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
-        // ],
+        items: [
+          { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
+          { text: '资源', link: '/pages/eee83a9211a70f9d/' },
+          { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
+          { text: '工具集', link: '/pages/12df8ace52d493f6/' },
+        ],
       },
       {
         text: '索引',
@@ -156,7 +167,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logoLx.png', // 导航栏logo
     repo: '08163356', // 导航栏右侧生成Github链接
-    searchMaxSuggestions: 10, // 搜索结果显示最大数
+    searchMaxSuggestions: 15, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
     docsDir: 'docs', // 编辑的文件夹
     // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
@@ -208,8 +219,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://github.com/08163356/aXingknowledgeRepo_3080/blob/gh-pages/img/avtar.png',
-      // avatar: '/img/avtar.png',
+      // avatar: 'https://github.com/08163356/aXingknowledgeRepo_3080/blob/gh-pages/img/avtar.png',
+      avatar: '/img/avtar.png',
       name: 'aXing',
       slogan: '终身学习',
     },
@@ -262,7 +273,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       'meta',
       {
         name: 'keywords',
-        content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
+        content: '个人技术博客,前端,后端，前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
       },
     ],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
