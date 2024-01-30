@@ -28,6 +28,34 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // 主题配置
   themeConfig: {
     // 导航配置
+    // 私密文章配置
+    privatePage: {
+      openPrivate: true, // 开启私密文章验证，默认开启（true），如果不开启（false），则下面配置都失效
+      username: "axing", // 管理员用户名
+      password: "123456", // 管理员密码
+      expire: "1d", // 登录过期时间：1d 代表 1 天，1h 代表 1 小时，仅支持这两个单位，不加单位代表秒。过期后访问私密文章重新输入用户名和密码。默认一天
+      loginPath: "/vdoing/components/Login/", // 引用登录组件的 md 文章的 permalink（必须），无默认值
+      loginKey: "vdoing_manager", // 存储用户名信息的 key，默认是 vdoing_manager。系统通过该 key 验证是否登录、是否过期
+      loginSession: true, // 开启是否在网页关闭或刷新后，清除登录状态，这样再次访问网页，需要重新登录，默认为 false（不开启）
+      firstLogin: 1, // 第一次进入网站需要验证。用于封锁整个网站，默认为 0（不开启），1 和 2 都代表开启，区别：1 代表虽然进入网站成功，但是网站内的私密文章仍需要单独验证，2 代表进入网站成功，网站内的私密文章不需要单独验证，也就是网站内的私密文章和普通文章一样可以访问
+      firstLoginKey: "vdoing_first_login", // 存储用户名信息的 key，firstLogin 开启后该配置生效，默认为 vdoing_first_login，系统通过该 key 验证是否登录、是否过期
+      loginInfo: {
+        "vdoing_first_login" :[  // 对应 firstLoginKey 的值
+          { username: "vdoing1", password: "123" },
+          { username: "vdoing2", password: "123456" },
+        ]
+      },
+      // 私密文章多组用户名密码
+      // loginInfo: {
+      //   "/private/test1/": [
+      //     { username: "vdoing", password: "123456" },
+      //   ],
+      //   "vdoing_first_login" :[  // 对应 firstLoginKey 的值
+      //     { username: "vdoing", password: "123456" },
+      //   ]
+      // }
+    },
+
     nav: [
       { text: '首页', link: '/' },
       {
@@ -167,7 +195,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logoLx.png', // 导航栏logo
     repo: '08163356', // 导航栏右侧生成Github链接
-    searchMaxSuggestions: 15, // 搜索结果显示最大数
+    searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
     docsDir: 'docs', // 编辑的文件夹
     // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
@@ -249,7 +277,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 页脚信息
     footer: {
-      createYear: 2024, // 博客创建年份
+      createYear: 2019, // 博客创建年份
       copyrightInfo:
         '阿兴 | <a href="https://github.com/08163356" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
     },
@@ -278,6 +306,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     ],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
     ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
+      // 私密文章
+    ['noscript', {}, '<meta http-equiv="refresh" content="0; url=https://www.youngkbt.cn/noscript/"><style>.theme-vdoing-content { display:none }'],
+    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3129839_xft6cqs5gc.css' }], // 阿里在线图标
+
     // [
     //   'script',
     //   {
