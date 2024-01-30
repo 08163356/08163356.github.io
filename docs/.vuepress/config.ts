@@ -31,7 +31,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '技术',
+        text: '🌐 技术',
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {
@@ -114,7 +114,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         //],
       },
       {
-        text: '书籍',
+        text: '📚 书籍',
         link: '/ui/',
         items: [
           { text: '阅读笔记', link: '/pages/d9db23/' },
@@ -123,7 +123,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '生活（todo）',
+        text: '🧳 生活（todo）',
         link: '/technology/',
         items: [
           { text: '各种活动', link: '/pages/9a7ee40fc232253e/' },
@@ -133,7 +133,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '更多',
+        text: '📌 更多',
         link: '/more/',
         items: [
           // { text: '学习', link: '/pages/f2a556/' },
@@ -143,9 +143,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           // { text: '友情链接', link: '/friends/' },
         ],
       },
-      { text: '关于', link: '/about/' },
+      { text: '🗒️ 关于', link: '/about/' },
       {
-        text: '收藏',
+        text: '🧰 收藏',
         link: '/pages/beb6c0bd8a66cea6/',
         items: [
           { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
@@ -155,7 +155,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '索引',
+        text: '👣 索引',
         link: '/archives/',
         items: [
           { text: '分类', link: '/categories/' },
