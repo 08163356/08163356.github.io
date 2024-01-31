@@ -6,7 +6,8 @@ import CodeGroup from "@theme/global-components/CodeGroup.vue"
 Vue.component(CodeBlock)
 Vue.component(CodeGroup)
 let privateAritle = [
-  "/pages/0c3a23/",
+    "/pages/e87a21/",
+  "/pages/6b67d3/",
   "/pages/dadf66/",
   "/pages/554775/",
   "/pages/a55980/",
@@ -21,7 +22,8 @@ let privateAritle = [
   "/pages/b05d3d/",
   "/pages/204521/",
   "/pages/bf72df/",
-  "/about/",
+  "/testLx/",
+  /web/,
   "/pages/4507be/",
   "/pages/0a3572/",
 ]
