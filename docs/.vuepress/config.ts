@@ -183,7 +183,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '👨🏻‍🎓 就业',
+        text: '👨🏻‍🎓 工作',
         link: '/testLx/',
         items: [
           {
