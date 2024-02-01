@@ -161,6 +161,29 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
+        text: '👨🏻‍🎓 工作',
+        link: '/work/',
+        items: [
+          {
+            text: '个人简历',
+            items: [
+              { text: '求职简历', link: '/pages/6b67d3/' },
+              { text: '技术技能【详细】', link: '/tags/' },
+              { text: '项目经历【详细】', link: '/archives/' },
+              { text: '求职信息【详细】', link: '/archives/' },
+            ],
+          },
+          {
+            text: '面试经验',
+            items: [
+              { text: '面试他人', link: '/categories/' },
+              { text: '个人面试', link: '/tags/' },
+            ],
+          },
+        ],
+
+      },
+      {
         text: '📌 更多',
         link: '/more/',
         items: [
@@ -182,29 +205,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: '工具集', link: '/pages/12df8ace52d493f6/' },
         ],
       },
-      {
-        text: '👨🏻‍🎓 工作',
-        link: '/testLx/',
-        items: [
-          {
-            text: '个人简历',
-            items: [
-              { text: '求职简历', link: '/categories/' },
-              { text: '技术技能【详细】', link: '/tags/' },
-              { text: '项目经历【详细】', link: '/archives/' },
-              { text: '求职信息【详细】', link: '/archives/' },
-            ],
-          },
-          {
-            text: '面试经验',
-            items: [
-              { text: '面试他人', link: '/categories/' },
-              { text: '个人面试', link: '/tags/' },
-            ],
-          },
-        ],
 
-      },
       {
         text: '👣 索引',
         link: '/archives/',
