@@ -1,16 +1,17 @@
 ---
 title: 栈--C++
-date: 2024-01-21 03:32:47
-permalink: /pages/2c06db/
+date: 2024-01-29 04:23:43
+permalink: /pages/95e5a3/
 categories:
   - 技术
-  - 数据结构
+  - 数据结构与算法
 tags:
   - 
 author: 
   name: aXing
   link: https://github.com/08163356
 ---
+
 [TOC]
 
 #### 1.栈的特点

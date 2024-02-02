@@ -1,7 +1,7 @@
 ---
 title: DNT
-date: 2024-01-21 03:32:44
-permalink: /pages/499d51/
+date: 2024-01-29 04:23:45
+permalink: /pages/f29068/
 categories:
   - 技术
   - 计算机网络
@@ -12,6 +12,7 @@ author:
   name: aXing
   link: https://github.com/08163356
 ---
+
 ## DNT
 
 请求首部 **`DNT`** (**D**o **N**ot **T**rack) 表明了用户对于网站追踪的偏好。它允许用户指定自己是否更注重个人隐私还是定制化内容。

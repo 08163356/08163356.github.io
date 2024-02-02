@@ -1,14 +1,15 @@
 ---
-title: Untitled
-date: 2024-01-21 14:57:55
-permalink: /pages/d6958f/
+title: 12【bug】加载出来的思维导图显示部分
+date: 2024-02-01 22:09:58
+permalink: /pages/8a8629/
 categories:
-  - 技术
-  - 知识库搭建
+  - 更多
+  - 建站历程
 tags:
   - 
 author: 
   name: aXing
   link: https://github.com/08163356
 ---
+
 

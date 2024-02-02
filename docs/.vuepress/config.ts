@@ -168,9 +168,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
             text: '个人简历',
             items: [
               { text: '求职简历', link: '/pages/6b67d3/' },
-              { text: '技术技能【详细】', link: '/tags/' },
-              { text: '项目经历【详细】', link: '/archives/' },
-              { text: '求职信息【详细】', link: '/archives/' },
+              { text: '技术技能【详细】', link: '/pages/d08c58/' },
+              { text: '项目经历【详细】', link: '/pages/ca36f0/' },
+              { text: '求职信息【详细】', link: '/pages/4176f6/' },
             ],
           },
           {

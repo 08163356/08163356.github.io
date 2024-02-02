@@ -1,7 +1,7 @@
 ---
 title: DLNA
-date: 2024-01-21 03:32:44
-permalink: /pages/6f90e7/
+date: 2024-01-29 04:23:45
+permalink: /pages/3a7135/
 categories:
   - 技术
   - 计算机网络
@@ -11,6 +11,7 @@ author:
   name: aXing
   link: https://github.com/08163356
 ---
+
 ## 一、是什么？
 
 DLNA(Digital Living Network Alliance)。是一个比较老旧的协议
