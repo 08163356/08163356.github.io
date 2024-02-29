@@ -167,17 +167,19 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: '个人简历',
             items: [
-              { text: '求职简历', link: '/pages/6b67d3/' },
-              { text: '技术技能【详细】', link: '/pages/d08c58/' },
-              { text: '项目经历【详细】', link: '/pages/ca36f0/' },
-              { text: '求职信息【详细】', link: '/pages/4176f6/' },
+              { text: '求职简历', link: '/pages/2a06c1/' },
+              { text: '技术技能【详细】', link: '/pages/665502/' },
+              { text: '项目经历【详细】', link: '/pages/d3cff9/' },
+              { text: '求职信息【详细】', link: '/pages/f6b0fa/' },
             ],
           },
           {
             text: '面试经验',
             items: [
-              { text: '面试他人', link: '/categories/' },
-              { text: '个人面试', link: '/tags/' },
+              // { text: '面试他人', link: '/categories/' },
+              { text: '面试他人', link: '/pages/f29e50/' },
+              // { text: '个人面试', link: '/tags/' },
+              { text: '个人面试', link: '/pages/f0ff9f/' },
             ],
           },
         ],
