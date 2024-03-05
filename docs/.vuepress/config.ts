@@ -22,9 +22,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       description: '计算机技术博客,记录个人关于前端、后端、操作系统、兴趣爱好、书籍阅读的学习与总结',
     }
   },
-  // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
+  base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
 
-  base: '/aXingknowledgeRepo_3080/',
+  // base: '/aXingknowledgeRepo_3080/',
   // 主题配置
   themeConfig: {
     // 导航配置
