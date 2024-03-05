@@ -1,3 +1,17 @@
+---
+title: boss面试题及其个人思考1
+date: 2024-03-02 09:58:24
+permalink: /pages/807f41/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ## 1、vue的双向绑定原理是什么？里面的关键点在哪里？
 
 个人思考：

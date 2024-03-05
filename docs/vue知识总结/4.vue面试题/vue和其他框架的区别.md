@@ -1,3 +1,16 @@
+---
+title: vue和其他框架的区别
+date: 2024-03-01 14:41:59
+permalink: /pages/36f227/
+categories:
+  - vue知识总结
+  - vue面试题
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ## vue和其他技术框架的区别，技术选型的时候该如何选？
 
 |                | Vue                                | Angular                        | React                          |
