@@ -1,6 +1,6 @@
 ---
-title: 《网络是怎样连接的》第一章
-date: 2024-01-29 04:23:46
+title:  Chrome开发者工具之JavaScript内存分析
+date: 2024-03-05 04:23:46
 permalink: /pages/642c37/
 categories:
   - 技术
@@ -34,7 +34,8 @@ web应用中的内存问题。
     > 能跟踪页面渲染过程中DOM节点计数，documents文档计数和JS事件监听计数。作为一个经验法则：避免对不再需要用到的DOM元素的引用，移除不需要的事件监听并且在存储你可能不会用到的大块数据时要留意。
 
 -   **我的页面有没有内存泄漏?** - 可以使用[堆分析仪(Heap
-    > Profiler)](https://github.com/CN-Chrome-DevTools/CN-Chrome-DevTools/blob/master/md/Performance-Profiling/javascript-memory-profiling.md#heading=h.g0yxr1o33gky)生成JS堆快照，通过分析内存图和比较快照之间的差异，来找出没有被垃圾回收清理掉的对象。
+    
+> Profiler)](https://github.com/CN-Chrome-DevTools/CN-Chrome-DevTools/blob/master/md/Performance-Profiling/javascript-memory-profiling.md#heading=h.g0yxr1o33gky)生成JS堆快照，通过分析内存图和比较快照之间的差异，来找出没有被垃圾回收清理掉的对象。
 
 -   **我的页面垃圾强制回收有多频繁?** -
     > 如果你的页面垃圾回收很频繁，那说明你的页面可能内存使用分配太频繁了。[Timeline内存查看工具(Timeline
@@ -93,11 +94,13 @@ handlers**中找到。如果不深入了解浏览器的实现原理，在这篇�
 有很多内部的GC根对用户来说都是不重要的。从应用的角度来说有下面几种情况：
 
 -   Window 全局对象
-    > (所有iframe中的)。在堆快照中有一个distance字段，它是从window对象到达对应对象的最短路径长度。
+    
+> (所有iframe中的)。在堆快照中有一个distance字段，它是从window对象到达对应对象的最短路径长度。
 
 -   由所有document能够遍历到的DOM节点组成的文档DOM树。不是所有节点都会被对应的JS引用，但有JS引用的节点在document存在的情况下都会被保留。
 
 -   有很多对象可能是在调试代码时或者DevTools
+    
     > console中(比如：console中的一些代码执行结束后)创建出来的。
 
 ## 
@@ -218,7 +221,8 @@ height="4.645833333333333in"}
 -   **对象的实例数**在Objects Count列上显示
 
 -   **Shallow size**列显示了由对应构造函数生成的对象的[shallow
-    > sizes(直接占用内存)](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes)总数
+    
+> sizes(直接占用内存)](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes)总数
 
 -   **Retained size**列展示了对应对象所占用的最大内存
 
@@ -434,6 +438,7 @@ height="2.40625in"}
 -   Comparison(对照)视图能够通过显示哪些对象内存被正确的回收了来搜寻内存泄漏。通常在一个操作前后记录两个(或更多)的内存使用快照。它是通过察看释放的内存和引用数目的差导来察看是否有内存泄漏，并找到原因。
 
 -   Containment(控制)视图对对象结构有更好的展示，帮助我们分析全局作用域(如
+    
     > window)中对象引用情况来找到是什么保留了这些对象。它能让你分析闭包并深入到对象更深层去查看。
 
 **问：堆分析仪中的constructor(一组)内容代表什么？**
@@ -447,12 +452,14 @@ height="2.0625in"}
     > Person。这跟一般的直接引用彼此的对象不一样。我们用中间对象是有性能方面的原因，全局对象改变会很频繁，非全局变量的属性访问优化对全局变量来说并不适用。
 
 -   **(roots)** -
-    > constructor中roots的内容引用它所选中的对象。它们也可以是由引擎自主创建的一些引用。这个引擎有用于引用对象的缓存，但是这些引用不会阻止引用对象被回收，所以它们不是真正的强引用(FIXME)。
+    
+> constructor中roots的内容引用它所选中的对象。它们也可以是由引擎自主创建的一些引用。这个引擎有用于引用对象的缓存，但是这些引用不会阻止引用对象被回收，所以它们不是真正的强引用(FIXME)。
 
 -   **(closure) - 一些函数闭包中的一组对象的引用**
 
 -   **(array, string, number, regexp)** -
-    > 一组属性引用了Array,String,Number或正则表达式的对象类型
+    
+> 一组属性引用了Array,String,Number或正则表达式的对象类型
 
 -   **(compiled code)** - 简单来说，所有东西都与compoled
     > code有关。Script像一个函数，但其实对应了\<script>的内容。SharedFunctionInfos
@@ -460,6 +467,7 @@ height="2.0625in"}
     > code之间的对象。函数通常有内容，而SFIS没有(FIXME)。
 
 -   **HTMLDivElement, HTMLAnchorElement, DocumentFragment 等 --
+    
     > 你代码中对elements或document对象的引用。**
 
 在你的程序的生命周期中生成的很多其它的对象，包括事件监听器或自定义对象，可以在下面的controllers中找到：
