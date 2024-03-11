@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'axing.com' // 域名 (不带https)
+const DOMAIN_NAME = 'blog.axingit.top' // 域名 (不带https)
 const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
@@ -67,7 +67,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
             items: [
               {text: '前端工程化', link:'/pages/1f8c4b/'},
               {text: '前端三件套', link:'/pages/044aeb/'},
-              {text: '前端知识总结', link:'/pages/f755ae/'},
+              {text: '学习总结', link:'/pages/f755ae/'},
               {text: '性能优化', link:'/pages/8a302d/'},
               {text: 'vue2/vue3', link:'/pages/c5f8c8/'},
             ],
@@ -201,10 +201,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '🧰 收藏',
         link: '/pages/beb6c0bd8a66cea6/',
         items: [
-          { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
-          { text: '资源', link: '/pages/eee83a9211a70f9d/' },
-          { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
-          { text: '工具集', link: '/pages/12df8ace52d493f6/' },
+          // { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
+          // { text: '资源', link: '/pages/eee83a9211a70f9d/' },
+          // { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
+          // { text: '工具集', link: '/pages/12df8ace52d493f6/' },
         ],
       },
 
