@@ -1,3 +1,17 @@
+---
+title: commonjs和es6的区别
+date: 2024-03-14 11:03:30
+permalink: /pages/f3bff1/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 CommonJS（通用模块规范）和ES6（ECMAScript 6）模块是两种不同的模块系统，它们在一些方面有所不同。
 
 1. 语法差异：

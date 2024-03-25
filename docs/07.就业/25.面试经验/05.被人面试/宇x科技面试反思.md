@@ -1,3 +1,17 @@
+---
+title: 宇x科技面试反思
+date: 2024-03-13 17:41:03
+permalink: /pages/4be20f/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ## 宇x科技面试
 
 还没开始，初步电话面试了

@@ -1,3 +1,17 @@
+---
+title: promise执行顺序的问题
+date: 2024-03-12 19:57:16
+permalink: /pages/e1d792/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ```
 const myPromise = Promise.resolve(Promise.resolve("Promise!"));
 function funcOne() {

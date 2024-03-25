@@ -1,3 +1,17 @@
+---
+title: 光mo科技面试
+date: 2024-03-12 15:05:36
+permalink: /pages/421752/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ## 公司
 
 主要是集合各个大牛然后进行AIGC方向的内容的开发
@@ -221,3 +235,6 @@ main();
 
 ```
 
+09124324
+
+32409124

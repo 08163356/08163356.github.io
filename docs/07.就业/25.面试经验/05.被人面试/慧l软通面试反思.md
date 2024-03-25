@@ -1,3 +1,17 @@
+---
+title: 慧l软通面试反思
+date: 2024-03-14 15:59:28
+permalink: /pages/ae0d84/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 反思：
 
 1.整体回答的流畅度不错

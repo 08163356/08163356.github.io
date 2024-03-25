@@ -1,3 +1,17 @@
+---
+title: 童心zhi物面试反思
+date: 2024-03-13 17:22:52
+permalink: /pages/d1c34f/
+categories:
+  - 就业
+  - 面试经验
+  - 被人面试
+tags:
+  - 
+author: 
+  name: aXing
+  link: https://github.com/08163356
+---
 ## 面试流程：
 
 一面技术面：
