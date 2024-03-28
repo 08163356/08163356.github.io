@@ -1,6 +1,6 @@
 ---
 title: commonjs和es6的区别
-date: 2024-03-14 11:03:30
+date: 2023-03-14 11:03:30
 permalink: /pages/f3bff1/
 categories:
   - 就业

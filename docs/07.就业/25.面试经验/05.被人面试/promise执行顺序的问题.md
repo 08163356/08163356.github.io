@@ -1,6 +1,6 @@
 ---
 title: promise执行顺序的问题
-date: 2024-03-12 19:57:16
+date: 2023-03-12 19:57:16
 permalink: /pages/e1d792/
 categories:
   - 就业

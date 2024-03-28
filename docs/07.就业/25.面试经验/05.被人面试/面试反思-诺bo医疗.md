@@ -1,6 +1,6 @@
 ---
 title: 面试反思-诺bo医疗
-date: 2024-03-16 11:05:12
+date: 2023-03-16 11:05:12
 permalink: /pages/a25792/
 categories:
   - 就业

@@ -1,6 +1,6 @@
 ---
 title: 如何谈薪和拒绝offer
-date: 2024-03-16 11:37:05
+date: 2023-03-16 11:37:05
 permalink: /pages/c4ce7c/
 categories:
   - 就业
