@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[462],{801:function(t,s,n){"use strict";n.r(s);var e=n(7),i=Object(e.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("事件循环是什么？")]),this._v(" "),t("p",[this._v("宏任务、微任务、主线程的执行顺序是怎么样的？")])])}),[],!1,null,null,null);s.default=i.exports}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[399],{736:function(t,o,n){"use strict";n.r(o);var s=n(7),e=Object(s.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("https://lonhon.top/2019/04/08/Amazon-project-optimize-records/")])])}),[],!1,null,null,null);o.default=e.exports}}]);

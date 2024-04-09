@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[506],{845:function(t,s,n){"use strict";n.r(s);var e=n(7),o=Object(e.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("Web API的数量之多令人难以置信（参见MDN文档的Web APIs词条）。")])])}),[],!1,null,null,null);s.default=o.exports}}]);

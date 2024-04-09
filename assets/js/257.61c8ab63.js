@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[257],{594:function(t,n,s){"use strict";s.r(n);var e=s(7),o=Object(e.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("和红包滚滚来类似，杯子里面方面奖励和惩罚的道具，在一定距离扔乒乓球，进哪个都可以。")])])}),[],!1,null,null,null);n.default=o.exports}}]);

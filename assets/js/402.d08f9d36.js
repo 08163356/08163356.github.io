@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[402],{740:function(t,s,n){"use strict";n.r(s);var e=n(7),o=Object(e.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("1.mount时调用setup中的async函数并改变setup中A的值，A的值供页面渲染使用")])])}),[],!1,null,null,null);s.default=o.exports}}]);
