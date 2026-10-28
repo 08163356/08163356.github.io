@@ -1,473 +1,328 @@
-/**
- * 提示：如您想使用JS版本的配置文件可参考：https://github.com/xugaoyi/vuepress-theme-vdoing/tree/a2f03e993dd2f2a3afdc57cf72adfc6f1b6b0c32/docs/.vuepress
- */
-import { resolve } from 'path'
-import { defineConfig4CustomTheme, UserPlugins } from 'vuepress/config'
-import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
-import dayjs from 'dayjs'
-import baiduCode from './config/baiduCode' // 百度统计hm码
-import htmlModules from './config/htmlModules' // 自定义插入的html块
+import { defineUserConfig } from "vuepress";
+import { viteBundler } from "@vuepress/bundler-vite";
+import { hopeTheme } from "vuepress-theme-hope";
+import { markdownImagePlugin } from "@vuepress/plugin-markdown-image";
 
-const DOMAIN_NAME = 'blog.axingit.top' // 域名 (不带https)
-const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
+const DOMAIN_NAME = "blog.axingit.top";
+const WEB_SITE = `https://${DOMAIN_NAME}`;
 
-export default defineConfig4CustomTheme<VdoingThemeConfig>({
-  theme: 'vdoing', // 使用npm主题包
-  // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题包
+export default defineUserConfig({
+  base: "/",
 
+  // 已下线敏感稿的兜底排除（原稿在本机 G:\axingSpace\blog-private）
+  pagePatterns: [
+    "**/*.md",
+    "!.vuepress",
+    "!node_modules",
+    "!04.更多/20.缪斯/**",
+    "!03.生活/2024家庭活动/**",
+    "!03.生活/个人保障/**",
+    "!01.技术/25.日志上报/**",
+    "!08.项目/03.game中台/**",
+    "!08.项目/06.王者/**",
+    "!08.项目/02.家庭网站/**",
+    "!01.技术/24.onlyOffice/60.AI配表预研/**",
+    "!01.技术/6.JIRA/**",
+    "!07.就业/55.AI梳理项目/**",
+    "!07.就业/25.面试经验/05.被人面试/**",
+    "!09.后端/02.需求实现/**",
+    "!13.培训/**",
+    "!03.生活/2026过年/01.过年费用计划.md",
+    "!03.生活/2026过年/02.家庭网站.md",
+    "!07.就业/01.个人简历/15.个人信息【详细】/**",
+    "!07.就业/01.个人简历/01.个人简历.md",
+    "!10.职业发展/01.提晋升失败后的想法.md",
+    "!11.投资/01.基金/01.过往反思.md",
+    "!08.项目/04.onlyoffice/01.1008国庆回来开会.md",
+    "!01.技术/24.onlyOffice/13.onlyoffice破解.md",
+    "!12.AI/01.需求探索/01.AIasMe探索.md",
+  ],
+  
   locales: {
-    '/': {
-      lang: 'zh-CN',
+    "/": {
+      lang: "zh-CN",
       title: "aXing's blog",
-      description: '计算机技术博客,记录个人关于前端、后端、操作系统、兴趣爱好、书籍阅读的学习与总结',
-    }
-  },
-  base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
-
-  // base: '/aXingknowledgeRepo_3080/',
-  // 主题配置
-  themeConfig: {
-    // 导航配置
-    // 私密文章配置
-    privatePage: {
-      openPrivate: true, // 开启私密文章验证，默认开启（true），如果不开启（false），则下面配置都失效
-      username: "axing", // 管理员用户名
-      password: "123456", // 管理员密码
-      expire: "1d", // 登录过期时间：1d 代表 1 天，1h 代表 1 小时，仅支持这两个单位，不加单位代表秒。过期后访问私密文章重新输入用户名和密码。默认一天
-      loginPath: "/vdoing/components/Login/", // 引用登录组件的 md 文章的 permalink（必须），无默认值
-      loginKey: "vdoing_manager", // 存储用户名信息的 key，默认是 vdoing_manager。系统通过该 key 验证是否登录、是否过期
-      loginSession: true, // 开启是否在网页关闭或刷新后，清除登录状态，这样再次访问网页，需要重新登录，默认为 false（不开启）
-      firstLogin: 1, // 第一次进入网站需要验证。用于封锁整个网站，默认为 0（不开启），1 和 2 都代表开启，区别：1 代表虽然进入网站成功，但是网站内的私密文章仍需要单独验证，2 代表进入网站成功，网站内的私密文章不需要单独验证，也就是网站内的私密文章和普通文章一样可以访问
-      firstLoginKey: "vdoing_first_login", // 存储用户名信息的 key，firstLogin 开启后该配置生效，默认为 vdoing_first_login，系统通过该 key 验证是否登录、是否过期
-      loginInfo: {
-        "vdoing_first_login" :[  // 对应 firstLoginKey 的值
-          { username: "vdoing1", password: "123" },
-          { username: "vdoing2", password: "123456" },
-        ]
-      },
-      // 私密文章多组用户名密码
-      // loginInfo: {
-      //   "/private/test1/": [
-      //     { username: "vdoing", password: "123456" },
-      //   ],
-      //   "vdoing_first_login" :[  // 对应 firstLoginKey 的值
-      //     { username: "vdoing", password: "123456" },
-      //   ]
-      // }
+      description: "计算机技术博客,记录个人关于前端、后端、操作系统、兴趣爱好、书籍阅读的学习与总结",
     },
-
-    nav: [
-      { text: '首页', link: '/' },
-      {
-        text: '🌐 技术',
-        link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
-        items: [
-          {
-            text: '前端知识',
-            items: [
-              {text: '前端工程化', link:'/pages/1f8c4b/'},
-              {text: '前端三件套', link:'/pages/044aeb/'},
-              {text: '学习总结', link:'/pages/f755ae/'},
-              {text: '性能优化', link:'/pages/8a302d/'},
-              {text: 'vue2/vue3', link:'/pages/c5f8c8/'},
-            ],
-          },
-          {
-            text: '程序语言',
-            items: [
-              {text: 'HTML/CSS/JS', link:'/pages/044aeb/'},
-              {text: 'TypeScript', link:'/pages/d50c7e/'},
-              {text: 'ES6', link:'/pages/bbd59e/'},
-              { text: 'C++', link: "/pages/315c31/" },
-              // { text: 'go', link: "/pages//" },
-              { text: 'JIRA', link: "/pages/70de10/" },
-              { text: 'python', link: "/pages/04ee36/" },
-            ],
-          },
-          {
-            text: '计算机技术',
-            link:'/web/',
-            items: [
-              { text: '操作系统', link: "/pages/884275/" },
-              { text: '数据结构与算法', link: "/pages/95e5a3/" },
-              { text: '计算机网络(待整理)', link: "/pages/6f90e7/" },
-              { text: '设计模式', link: "/pages/6044ee/" },
-            ]
-          },
-          {
-            text: '其他',
-            items: [
-              { text: 'git知识', link: "/pages/68f805/" },
-              { text: 'android', link: "/pages/548dc4/" },
-              { text: 'bug解决', link: "/pages/5036c3/" },
-              { text: '脚本汇总', link: "/pages/bcc616/" },
-              { text: '正则表达式', link: "/pages/a34e0a/" },
-            ],
-          },
-        ],
-        //items: [
-        //  // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
-        //  {
-        //    text: '前端文章',
-        //    items: [
-        //      { text: 'JavaScript', link: '/pages/8143cc480faf9a11/' },
-        //    ],
-        //  },
-        //  {
-        //    text: '学习笔记',
-        //    items: [
-        //      { text: '《JavaScript教程》', link: '/note/javascript/' },
-        //      { text: '《JavaScript高级程序设计》', link: '/note/js/' },
-        //      { text: '《ES6 教程》', link: '/note/es6/' },
-        //      { text: '《Vue》', link: '/note/vue/' },
-        //      { text: '《React》', link: '/note/react/' },
-        //      {
-        //        text: '《TypeScript 从零实现 axios》',
-        //        link: '/note/typescript-axios/',
-        //      },
-        //      {
-        //        text: '《Git》',
-        //        link: '/note/git/',
-        //      },
-        //      {
-        //        text: 'TypeScript',
-        //        link: '/pages/51afd6/',
-        //      },
-        //      {
-        //        text: 'JS设计模式总结',
-        //        link: '/pages/4643cd/',
-        //      },
-        //    ],
-        //  },
-        //],
-      },
-      {
-        text: '📚 书籍',
-        link: '/ui/',
-        items: [
-          { text: '阅读笔记', link: '/pages/d9db23/' },
-          { text: '阅读摘抄', link: '/pages/cc91aa/' },
-          // { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
-        ],
-      },
-      // {
-      //   text: '🧳 生活（todo）',
-      //   link: '/technology/',
-      //   items: [
-      //     { text: '各种活动', link: '/pages/9a7ee40fc232253e/' },
-      //     { text: '生活碎片', link: '/pages/4c778760be26d8b3/' },
-      //     { text: '随笔感悟', link: '/pages/117708e0af7f0bd9/' },
-      //     { text: '兴趣爱好', link: '/pages/41f87d890d0a02af/' },
-      //   ],
-      // },
-      {
-        text: '👨🏻‍🎓 工作',
-        link: '/work/',
-        items: [
-          {
-            text: '个人简历',
-            items: [
-              { text: '求职简历', link: '/pages/2a06c1/' },
-              { text: '技术技能【详细】', link: '/pages/665502/' },
-              { text: '项目经历【详细】', link: '/pages/d3cff9/' },
-              { text: '求职信息【详细】', link: '/pages/f6b0fa/' },
-            ],
-          },
-          {
-            text: '面试经验',
-            items: [
-              // { text: '面试他人', link: '/categories/' },
-              { text: '面试他人', link: '/pages/f29e50/' },
-              // { text: '个人面试', link: '/tags/' },
-              { text: '个人面试', link: '/pages/f0ff9f/' },
-            ],
-          },
-        ],
-
-      },
-      // {
-      //   text: '📌 更多',
-      //   link: '/more/',
-      //   items: [
-      //     { text: '学习', link: '/pages/f2a556/' },
-      //     { text: '面试', link: '/pages/aea6571b7a8bae86/' },
-      //     { text: '心情杂货', link: '/pages/2d615df9a36a98ed/' },
-      //     { text: '实用技巧', link: '/pages/baaa02/' },
-      //     { text: '友情链接', link: '/friends/' },
-      //   ],
-      // },
-      // { text: '🗒️ 关于', link: '/about/' },
-      {
-        text: '🧰 收藏',
-        link: '/pages/beb6c0bd8a66cea6/',
-        items: [
-          // { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
-          // { text: '资源', link: '/pages/eee83a9211a70f9d/' },
-          // { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
-          // { text: '工具集', link: '/pages/12df8ace52d493f6/' },
-        ],
-      },
-
-      {
-        text: '👣 索引',
-        link: '/archives/',
-        items: [
-          { text: '分类', link: '/categories/' },
-          { text: '标签', link: '/tags/' },
-          { text: '归档', link: '/archives/' },
-        ],
-      },
-    ],
-    sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    logo: '/img/logoLx.png', // 导航栏logo
-    repo: '08163356', // 导航栏右侧生成Github链接
-    searchMaxSuggestions: 10, // 搜索结果显示最大数
-    lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
-    docsDir: 'docs', // 编辑的文件夹
-    // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
-    editLinks: true, // 启用编辑
-    editLinkText: '编辑',
-
-    //*** 以下是Vdoing主题相关配置，文档：https://doc.xugaoyi.com/pages/a20ce8/ ***//
-
-    // category: false, // 是否打开分类功能，默认true
-    // tag: false, // 是否打开标签功能，默认true
-    // archive: false, // 是否打开归档功能，默认true
-    // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-
-    // pageStyle: 'line', // 页面风格，可选值：'card'卡片 | 'line' 线（未设置bodyBgImg时才生效）， 默认'card'。 说明：card时背景显示灰色衬托出卡片样式，line时背景显示纯色，并且部分模块带线条边框
-
-    // bodyBgImg: [
-    //   'https://jsd.cdn.zzko.cn/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
-    //   'https://jsd.cdn.zzko.cn/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
-    //   'https://jsd.cdn.zzko.cn/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
-    // ], // body背景大图，默认无。 单张图片 String | 多张图片 Array, 多张图片时隔bodyBgImgInterval切换一张。
-    // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~1.0, 默认0.5
-    // bodyBgImgInterval: 15, // body多张背景图时的切换间隔, 默认15，单位s
-    // titleBadge: false, // 文章标题前的图标是否显示，默认true
-    // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
-    //   '图标地址1',
-    //   '图标地址2'
-    // ],
-    // contentBgStyle: 1, // 文章内容块的背景风格，默认无. 1 方格 | 2 横线 | 3 竖线 | 4 左斜线 | 5 右斜线 | 6 点状
-
-    // updateBar: { // 最近更新栏
-    //   showToArticle: true, // 显示到文章页底部，默认true
-    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
-    // },
-    // rightMenuBar: false, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
-    // sidebarOpen: false, // 初始状态是否打开左侧边栏，默认true
-    // pageButton: false, // 是否显示快捷翻页按钮，默认true
-
-    // 默认外观模式（用户未在页面手动修改过模式时才生效，否则以用户设置的模式为准），可选：'auto' | 'light' | 'dark' | 'read'，默认'auto'。
-    // defaultMode: 'auto',
-
-    // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | <自定义>    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-    sidebar: 'structuring',
-
-    // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
-    author: {
-      name: 'aXing', // 必需
-      link: 'https://github.com/08163356', // 可选的
-    },
-
-    // 博主信息 (显示在首页侧边栏)
-    blogger: {
-      // avatar: 'https://github.com/08163356/aXingknowledgeRepo_3080/blob/gh-pages/img/avtar.png',
-      avatar: '/img/avtar.png',
-      name: 'aXing',
-      slogan: '终身学习',
-    },
-
-    // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
-    social: {
-      // iconfontCssFile: '//at.alicdn.com/t/xxx.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自己添加。阿里图片库：https://www.iconfont.cn/
-      icons: [
-        {
-          iconClass: 'icon-youjian',
-          title: '发邮件',
-          link: 'mailto:2537334510@qq.com',
-        },
-        {
-          iconClass: 'icon-github',
-          title: 'GitHub',
-          link: 'https://github.com/08163356',
-        },
-        //{
-        //  iconClass: 'icon-erji',
-        //  title: '听音乐',
-        //  link: 'https://music.163.com/#/playlist?id=755597173',
-        //},
-      ],
-    },
-
-    // 页脚信息
-    footer: {
-      createYear: 2019, // 博客创建年份
-      copyrightInfo:
-        '阿兴 | <a href="https://github.com/08163356" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
-    },
-
-    // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
-    extendFrontmatter: {
-      author: {
-        name: 'aXing',
-        link: 'https://github.com/08163356'
-      }
-    },
-
-    // 自定义hmtl(广告)模块
-    htmlModules
   },
 
-  // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
+  bundler: viteBundler({
+    viteOptions: {
+      server: {
+        fs: {
+          strict: false,
+          // 允许访问 docs 目录下的所有文件
+          allow: ['..'],
+        },
+      },
+      // 将 .assets 目录中的图片视为静态资源
+      assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
+      // Vue 编译选项：忽略未闭合的自定义标签
+      vue: {
+        template: {
+          compilerOptions: {
+            // 将单字母大写标签视为自定义元素（如 <T>, <U> 等泛型）
+            isCustomElement: (tag) => /^[A-Z]$/.test(tag),
+          },
+        },
+      },
+    },
+  }),
+
   head: [
-    ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
+    ["link", { rel: "icon", href: "/img/favicon.ico" }],
     [
-      'meta',
+      "meta",
       {
-        name: 'keywords',
-        content: '个人技术博客,前端,后端，前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
+        name: "keywords",
+        content: "个人技术博客,前端,后端，前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown",
       },
     ],
-    ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
-    ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
-      // 私密文章
-    ['noscript', {}, '<meta http-equiv="refresh" content="0; url=https://www.youngkbt.cn/noscript/"><style>.theme-vdoing-content { display:none }'],
-    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3129839_xft6cqs5gc.css' }], // 阿里在线图标
-
-    // [
-    //   'script',
-    //   {
-    //     'data-ad-client': 'ca-pub-7828333725993554',
-    //     async: 'async',
-    //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-    //   },
-    // ], // 网站关联Google AdSense 与 html格式广告支持（你可以去掉）
+    ["meta", { name: "baidu-site-verification", content: "7F55weZDDc" }],
+    ["meta", { name: "theme-color", content: "#11a8cd" }],
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3129839_xft6cqs5gc.css" }],
   ],
 
+  theme: hopeTheme({
+    hostname: WEB_SITE,
+    
+    author: {
+      name: "aXing",
+      url: "https://github.com/08163356",
+    },
 
-  // 插件配置
-  plugins: <UserPlugins>[
-    [
-      "sitemap", // 网站地图
-      {
-        hostname: WEB_SITE,
+    logo: "/img/logoLx.png",
+    
+    repo: "08163356/08163356.github.io",
+    docsDir: "docs",
+
+    // 博客模式配置
+    blog: {
+      avatar: "/img/avtar.png",
+      name: "aXing",
+      description: "终身学习",
+      intro: "/about/",
+      medias: {
+        Email: "mailto:2537334510@qq.com",
+        GitHub: "https://github.com/08163356",
       },
-    ],
+    },
 
-    'vuepress-plugin-baidu-autopush', // 百度自动推送
-
-    [
-      'vuepress-plugin-baidu-tongji', // 百度统计
+    // 导航栏
+    navbar: [
+      { text: "首页", link: "/" },
       {
-        hm: baiduCode,
-      },
-    ],
-
-    // 全文搜索。 ⚠️注意：此插件会在打开网站时多加载部分js文件用于搜索，导致初次访问网站变慢。如在意初次访问速度的话可以不使用此插件！（推荐：vuepress-plugin-thirdparty-search）
-    // 'fulltext-search',
-
-    // 可以添加第三方搜索链接的搜索框（继承原官方搜索框的配置参数）
-    [
-      'thirdparty-search',
-      {
-        thirdparty: [
+        text: "🌐 技术",
+        link: "/web/",
+        children: [
           {
-            title: '在MDN中搜索',
-            frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
-            behindUrl: '', // 搜索链接的后面部分，可选，默认 ''
+            text: "前端开发",
+            children: [
+              { text: "前端工程化", link: "/pages/1f8c4b/" },
+              { text: "前端三件套", link: "/pages/044aeb/" },
+              { text: "性能优化", link: "/pages/perf-index/" },
+              { text: "Vue2/Vue3", link: "/pages/c5f8c8/" },
+              { text: "浏览器知识", link: "/pages/d6f366/" },
+            ],
           },
           {
-            title: '在Runoob中搜索',
-            frontUrl: 'https://www.runoob.com/?s=',
+            text: "程序语言",
+            children: [
+              { text: "TypeScript", link: "/pages/d50c7e/" },
+              { text: "ES6", link: "/pages/bbd59e/" },
+              { text: "Node.js", link: "/pages/2cc2a3/" },
+              { text: "C++", link: "/pages/315c31/" },
+              { text: "Python", link: "/pages/04ee36/" },
+            ],
           },
           {
-            title: '在Vue API中搜索',
-            frontUrl: 'https://cn.vuejs.org/v2/api/#',
+            text: "计算机基础",
+            children: [
+              { text: "操作系统", link: "/pages/884275/" },
+              { text: "数据结构与算法", link: "/pages/95e5a3/" },
+              { text: "计算机网络", link: "/pages/6f90e7/" },
+              { text: "设计模式", link: "/pages/6044ee/" },
+            ],
           },
           {
-            title: '在Bing中搜索',
-            frontUrl: 'https://cn.bing.com/search?q=',
+            text: "后端开发",
+            children: [
+              { text: "后端入门", link: "/pages/969ee3/" },
+            ],
           },
           {
-            title: '通过百度搜索本站的',
-            frontUrl: `https://www.baidu.com/s?wd=site%3A${DOMAIN_NAME}%20`,
+            text: "工具技术",
+            children: [
+              { text: "Git知识", link: "/pages/68f805/" },
+              { text: "OnlyOffice", link: "/pages/oo-index/" },
+              { text: "正则表达式", link: "/pages/a34e0a/" },
+              { text: "脚本汇总", link: "/pages/bcc616/" },
+            ],
+          },
+          {
+            text: "其他",
+            children: [
+              { text: "Android", link: "/pages/548dc4/" },
+              { text: "AI技术", link: "/pages/ffba7e/" },
+              { text: "Bug解决", link: "/pages/5036c3/" },
+            ],
           },
         ],
-      }
-    ],
-
-    [
-      'one-click-copy', // 代码块复制按钮
+      },
       {
-        copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
-        copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
-        duration: 1000, // prompt message display time.
-        showInMobile: false, // whether to display on the mobile side, default: false.
+        text: "📚 书籍",
+        link: "/ui/",
+        children: [
+          { text: "阅读笔记", link: "/pages/d9db23/" },
+          { text: "阅读摘抄", link: "/pages/cc91aa/" },
+          { text: "读书知识图谱", link: "https://ablog.axingit.top/daily/#/" },
+        ],
+      },
+      {
+        text: "👨🏻‍🎓 工作",
+        link: "/work/",
+        children: [
+          { text: "技术技能", link: "/pages/665502/" },
+          { text: "项目经历", link: "/pages/d3cff9/" },
+          { text: "面试他人", link: "/pages/f29e50/" },
+          { text: "个人面试", link: "/pages/f0ff9f/" },
+        ],
+      },
+      {
+        text: "🧰 收藏",
+        link: "/pages/beb6c0bd8a66cea6/",
+      },
+      {
+        text: "👣 索引",
+        link: "/archives/",
+        children: [
+          { text: "分类", link: "/category/" },
+          { text: "标签", link: "/tag/" },
+          { text: "归档", link: "/timeline/" },
+        ],
       },
     ],
 
-    [
-      'demo-block', // demo演示模块 https://github.com/xiguaxigua/vuepress-plugin-demo-block
-      {
-        settings: {
-          // jsLib: ['http://xxx'], // 在线示例(jsfiddle, codepen)中的js依赖
-          // cssLib: ['http://xxx'], // 在线示例中的css依赖
-          // vue: 'https://jsd.cdn.zzko.cn/npm/vue/dist/vue.min.js', // 在线示例中的vue依赖
-          jsfiddle: false, // 是否显示 jsfiddle 链接
-          codepen: true, // 是否显示 codepen 链接
-          horizontal: false, // 是否展示为横向样式
+    // 侧边栏 - 自动生成
+    sidebar: "structure",
+
+    // 页脚
+    footer: "阿兴 | MIT License",
+    displayFooter: true,
+    copyright: "Copyright © 2019-present aXing",
+
+    // 全屏按钮
+    fullscreen: true,
+
+    // 在深色模式和浅色模式之间切换
+    darkmode: "toggle",
+
+    // 文章信息显示
+    pageInfo: ["Author", "Date", "Original", "Category", "Tag", "ReadingTime", "Word"],
+
+    // Markdown 配置 (新位置)
+    markdown: {
+      align: true,
+      attrs: true,
+      codeTabs: true,
+      component: true,
+      demo: true,
+      figure: true,
+      imgLazyload: true,
+      imgSize: true,
+      include: true,
+      mark: true,
+      plantuml: true,
+      spoiler: true,
+      stylize: [
+        {
+          matcher: "Recommended",
+          replacer: ({ tag }) => {
+            if (tag === "em")
+              return {
+                tag: "Badge",
+                attrs: { type: "tip" },
+                content: "Recommended",
+              };
+          },
         },
+      ],
+      sub: true,
+      sup: true,
+      tabs: true,
+      tasklist: true,
+      vPre: true,
+    },
+
+    // 插件配置
+    plugins: {
+      // 启用组件
+      components: {
+        components: ["VPCard"],
       },
-    ],
-    [
-      'vuepress-plugin-zooming', // 放大图片
-      {
-        selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
-        options: {
-          bgColor: 'rgba(0,0,0,0.6)',
-        },
+
+      // 博客插件
+      blog: {
+        excerpt: false,
+        // 分类和标签配置
+        category: "/category/",
+        categoryItem: "/category/:name/",
+        tag: "/tag/",
+        tagItem: "/tag/:name/",
+        // 时间线
+        timeline: "/timeline/",
+        // 文章列表
+        article: "/article/",
+        // 每页显示文章数
+        articlePerPage: 10,
       },
-    ],
-    // [
-    //   'vuepress-plugin-comment', // 评论
-    //   {
-    //     choosen: 'gitalk',
-    //     options: {
-    //       clientID: 'a6e1355287947096b88b',
-    //       clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-    //       repo: 'blog-gitalk-comment', // GitHub 仓库
-    //       owner: 'aXing', // GitHub仓库所有者
-    //       admin: ['aXing'], // 对仓库有写权限的人
-    //       // distractionFreeMode: true,
-    //       pagerDirection: 'last', // 'first'正序 | 'last'倒序
-    //       id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
-    //       title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
-    //       labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
-    //       body:
-    //         '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
-    //     },
-    //   },
-    // ],
-    [
-      '@vuepress/last-updated', // "上次更新"时间格式
-      {
-        transformer: (timestamp, lang) => {
-          return dayjs(timestamp).format('YYYY/MM/DD, HH:mm:ss')
-        },
+
+      // Giscus 未填 repoId/categoryId，先关掉空壳评论
+      comment: false,
+
+      // 阅读时间与字数统计
+      readingTime: {
+        wordPerMinute: 300,  // 每分钟阅读字数
       },
-    ],
-  ],
+
+      // 代码复制
+      copyCode: {
+        showInMobile: false,
+      },
+
+      // 图片预览
+      photoSwipe: true,
+
+      // 搜索 - 使用 slimsearch
+      slimsearch: {
+        indexContent: true,
+        autoSuggestions: true,
+      },
+
+      // Sitemap
+      sitemap: {
+        changefreq: "weekly",
+      },
+    },
+
+    // 最后更新时间
+    lastUpdated: true,
+    contributors: true,
+    editLink: true,
+    editLinkPattern: ":repo/edit/:branch/:path",
+  }),
 
   markdown: {
-    lineNumbers: true,
-    extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'], // 提取标题到侧边栏的级别，默认['h2', 'h3']
+    headers: {
+      level: [2, 3, 4, 5, 6],
+    },
+    // 将未知的 HTML 标签视为普通文本，避免 Vue 编译错误
+    vPre: {
+      block: true,
+      inline: true,
+    },
   },
 
-  // 监听文件变化并重新构建
-  extraWatchFiles: [
-    '.vuepress/config.ts',
-    '.vuepress/config/htmlModules.ts',
-  ]
-})
+  // 性能优化
+  shouldPrefetch: false,
+});
