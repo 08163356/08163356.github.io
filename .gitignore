@@ -12,8 +12,15 @@ pnpm-lock.yaml
 # vscode
 .vscode
 
+
 # vuepress
 docs/.vuepress/dist
+site-out
+.vp-temp
+.vp-cache
+blog-dist.zip
+__pycache__/
+*.pyc
 
 # 百度链接推送
 urls.txt

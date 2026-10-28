@@ -3,7 +3,7 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { hopeTheme } from "vuepress-theme-hope";
 import { markdownImagePlugin } from "@vuepress/plugin-markdown-image";
 
-const DOMAIN_NAME = "blog.axingit.top";
+const DOMAIN_NAME = "ablog.axingit.top";
 const WEB_SITE = `https://${DOMAIN_NAME}`;
 
 export default defineUserConfig({
@@ -101,7 +101,7 @@ export default defineUserConfig({
       avatar: "/img/avtar.png",
       name: "aXing",
       description: "终身学习",
-      intro: "/about/",
+      intro: "/pages/about-me/",
       medias: {
         Email: "mailto:2537334510@qq.com",
         GitHub: "https://github.com/08163356",
