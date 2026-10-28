@@ -11,6 +11,9 @@ on:
 env: # 设置环境变量
   TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用该时区时间）
 
+permissions:
+  contents: write
+
 jobs:
   build: # 自定义名称
     runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
@@ -33,8 +36,8 @@ jobs:
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
           deploy_branch=gh-pages
-          yarn
-          yarn build
+          npm install
+          npm run build
           cd docs/.vuepress/dist
           git config --global init.defaultBranch $deploy_branch
           git init
