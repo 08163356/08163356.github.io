@@ -1,0 +1,85 @@
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,a as i,o as e}from"./app-BBpi8vMY.js";const l={};function p(c,s){return e(),a("div",null,[...s[0]||(s[0]=[i(`<p>个人需求：</p><h2 id="获取内存大小" tabindex="-1"><a class="header-anchor" href="#获取内存大小"><span>获取内存大小</span></a></h2><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>cat /proc/meminfo |grep MemTotal</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>获得结果</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>sh-3.2# cat /proc/meminfo |grep MemTotal</span></span>
+<span class="line"><span>MemTotal:        2276480 kB</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>MemTotal:        2596672 kB</span></span>
+<span class="line"><span>2535.8125MB</span></span>
+<span class="line"><span>2.4763793945312GB</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>说明：Linux下可以在/proc/cpuinfo中看到每个cpu的详细信息。但是对于双核的cpu，在cpuinfo中会看到两个cpu。常常会让人误以为是两个单核的cpu。 其实应该通过Physical Processor ID来区分单核和双核。而Physical Processor ID可以从cpuinfo或者dmesg中找到. flags 如果有 ht 说明支持超线程技术 判断物理CPU的个数可以查看physical id 的值，相同则为同一个物理CPU 可以看到上面，这台机器有两个双核的CPU，ID分别是0和3，大小是2.8G。</p><h2 id="获取存储大小" tabindex="-1"><a class="header-anchor" href="#获取存储大小"><span>获取存储大小</span></a></h2><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>fdisk -l |grep Disk</span></span>
+<span class="line"><span>df -h</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="linux-cpu大小" tabindex="-1"><a class="header-anchor" href="#linux-cpu大小"><span>linux CPU大小</span></a></h2><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>cat /proc/cpuinfo |grep &quot;model name&quot; &amp;&amp; cat /proc/cpuinfo |grep &quot;physical id&quot;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>cat /proc/cpuinfo获得结果</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>processor	: 0</span></span>
+<span class="line"><span>BogoMIPS	: 24.00</span></span>
+<span class="line"><span>Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid</span></span>
+<span class="line"><span>CPU implementer	: 0x41</span></span>
+<span class="line"><span>CPU architecture: 8</span></span>
+<span class="line"><span>CPU variant	: 0x1</span></span>
+<span class="line"><span>CPU part	: 0xd09</span></span>
+<span class="line"><span>CPU revision	: 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>processor	: 1</span></span>
+<span class="line"><span>BogoMIPS	: 24.00</span></span>
+<span class="line"><span>Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid</span></span>
+<span class="line"><span>CPU implementer	: 0x41</span></span>
+<span class="line"><span>CPU architecture: 8</span></span>
+<span class="line"><span>CPU variant	: 0x1</span></span>
+<span class="line"><span>CPU part	: 0xd09</span></span>
+<span class="line"><span>CPU revision	: 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>processor	: 2</span></span>
+<span class="line"><span>BogoMIPS	: 24.00</span></span>
+<span class="line"><span>Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid</span></span>
+<span class="line"><span>CPU implementer	: 0x41</span></span>
+<span class="line"><span>CPU architecture: 8</span></span>
+<span class="line"><span>CPU variant	: 0x1</span></span>
+<span class="line"><span>CPU part	: 0xd09</span></span>
+<span class="line"><span>CPU revision	: 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>processor	: 3</span></span>
+<span class="line"><span>BogoMIPS	: 24.00</span></span>
+<span class="line"><span>Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid</span></span>
+<span class="line"><span>CPU implementer	: 0x41</span></span>
+<span class="line"><span>CPU architecture: 8</span></span>
+<span class="line"><span>CPU variant	: 0x1</span></span>
+<span class="line"><span>CPU part	: 0xd09</span></span>
+<span class="line"><span>CPU revision	: 0</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="free-m-查看内存使用量和交换区使用量" tabindex="-1"><a class="header-anchor" href="#free-m-查看内存使用量和交换区使用量"><span>free -m # 查看内存使用量和交换区使用量</span></a></h2><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>               total        used        free      shared  buff/cache   available</span></span>
+<span class="line"><span>Mem:            2535        1473         219          64         842         671</span></span>
+<span class="line"><span>Swap:           1266           0        1266</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="更多查看的方法" tabindex="-1"><a class="header-anchor" href="#更多查看的方法"><span>更多查看的方法</span></a></h2><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>uname -a # 查看内核/操作系统/CPU信息(含x86_64表示32位机器,i686表示32位机器)</span></span>
+<span class="line"><span>head -n 1 /etc/issue # 查看操作系统版本，是数字1不是字母L</span></span>
+<span class="line"><span>cat /proc/cpuinfo # 查看CPU信息的linux系统信息命令</span></span>
+<span class="line"><span>hostname # 查看计算机名的linux系统信息命令</span></span>
+<span class="line"><span>lspci -tv # 列出所有PCI设备</span></span>
+<span class="line"><span>lsusb -tv # 列出所有USB设备的linux系统信息命令</span></span>
+<span class="line"><span>lsmod # 列出加载的内核模块</span></span>
+<span class="line"><span>env # 查看环境变量资源</span></span>
+<span class="line"><span>free -m # 查看内存使用量和交换区使用量</span></span>
+<span class="line"><span>df -h # 查看各分区使用情况</span></span>
+<span class="line"><span>du -sh # 查看指定目录的大小</span></span>
+<span class="line"><span>grep MemTotal /proc/meminfo # 查看内存总量</span></span>
+<span class="line"><span>grep MemFree /proc/meminfo # 查看空闲内存量</span></span>
+<span class="line"><span>uptime # 查看系统运行时间、用户数、负载</span></span>
+<span class="line"><span>cat /proc/loadavg # 查看系统负载磁盘和分区</span></span>
+<span class="line"><span>mount | column -t # 查看挂接的分区状态</span></span>
+<span class="line"><span>fdisk -l # 查看所有分区</span></span>
+<span class="line"><span>swapon -s # 查看所有交换分区</span></span>
+<span class="line"><span>hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)</span></span>
+<span class="line"><span>dmesg | grep IDE # 查看启动时IDE设备检测状况网络</span></span>
+<span class="line"><span>ifconfig # 查看所有网络接口的属性</span></span>
+<span class="line"><span>iptables -L # 查看防火墙设置</span></span>
+<span class="line"><span>route -n # 查看路由表</span></span>
+<span class="line"><span>netstat -lntp # 查看所有监听端口</span></span>
+<span class="line"><span>netstat -antp # 查看所有已经建立的连接</span></span>
+<span class="line"><span>netstat -s # 查看网络统计信息进程</span></span>
+<span class="line"><span>ps -ef # 查看所有进程</span></span>
+<span class="line"><span>top # 实时显示进程状态用户</span></span>
+<span class="line"><span>w # 查看活动用户</span></span>
+<span class="line"><span>id # 查看指定用户信息</span></span>
+<span class="line"><span>last # 查看用户登录日志</span></span>
+<span class="line"><span>cut -d: -f1 /etc/passwd # 查看系统所有用户</span></span>
+<span class="line"><span>cut -d: -f1 /etc/group # 查看系统所有组</span></span>
+<span class="line"><span>crontab -l # 查看当前用户的计划任务服务</span></span>
+<span class="line"><span>chkconfig –list # 列出所有系统服务</span></span>
+<span class="line"><span>chkconfig –list | grep on # 列出所有启动的系统服务程序</span></span>
+<span class="line"><span>rpm -qa # 查看所有安装的软件包</span></span>
+<span class="line"><span>cat /proc/cpuinfo ：查看CPU相关参数的linux系统命令</span></span>
+<span class="line"><span>cat /proc/partitions ：查看linux硬盘和分区信息的系统信息命令</span></span>
+<span class="line"><span>cat /proc/meminfo ：查看linux系统内存信息的linux系统命令</span></span>
+<span class="line"><span>cat /proc/version ：查看版本，类似uname -r</span></span>
+<span class="line"><span>cat /proc/ioports ：查看设备io端口</span></span>
+<span class="line"><span>cat /proc/interrupts ：查看中断</span></span>
+<span class="line"><span>cat /proc/pci ：查看pci设备的信息</span></span>
+<span class="line"><span>cat /proc/swaps ：查看所有swap分区的信息</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>参考：https://blog.csdn.net/qq_15437629/article/details/51601521</p>`,18)])])}const t=n(l,[["render",p]]),u=JSON.parse(`{"path":"/pages/4d475f/","title":"linux命令行查看设备参数","lang":"zh-CN","frontmatter":{"title":"linux命令行查看设备参数","date":"2024-01-29T04:23:39.000Z","permalink":"/pages/4d475f/","categories":["技术","操作系统","Linux"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"description":"个人需求： 获取内存大小 获得结果 说明：Linux下可以在/proc/cpuinfo中看到每个cpu的详细信息。但是对于双核的cpu，在cpuinfo中会看到两个cpu。常常会让人误以为是两个单核的cpu。 其实应该通过Physical Processor ID来区分单核和双核。而Physical Processor ID可以从cpuinfo或者dm...","head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/4d475f/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"linux命令行查看设备参数"}],["meta",{"property":"og:description","content":"个人需求： 获取内存大小 获得结果 说明：Linux下可以在/proc/cpuinfo中看到每个cpu的详细信息。但是对于双核的cpu，在cpuinfo中会看到两个cpu。常常会让人误以为是两个单核的cpu。 其实应该通过Physical Processor ID来区分单核和双核。而Physical Processor ID可以从cpuinfo或者dm..."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2024-02-02T15:55:47.000Z"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-29T04:23:39.000Z"}],["meta",{"property":"article:modified_time","content":"2024-02-02T15:55:47.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"linux命令行查看设备参数\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-29T04:23:39.000Z\\",\\"dateModified\\":\\"2024-02-02T15:55:47.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[{"level":2,"title":"获取内存大小","slug":"获取内存大小","link":"#获取内存大小","children":[]},{"level":2,"title":"获取存储大小","slug":"获取存储大小","link":"#获取存储大小","children":[]},{"level":2,"title":"linux CPU大小","slug":"linux-cpu大小","link":"#linux-cpu大小","children":[]},{"level":2,"title":"free -m # 查看内存使用量和交换区使用量","slug":"free-m-查看内存使用量和交换区使用量","link":"#free-m-查看内存使用量和交换区使用量","children":[]},{"level":2,"title":"更多查看的方法","slug":"更多查看的方法","link":"#更多查看的方法","children":[]}],"git":{"createdTime":1706109170000,"updatedTime":1706889347000,"contributors":[{"name":"Lx08163356@163.com","username":"Lx08163356@163.com","email":"Lx08163356@163.com","commits":3,"url":"https://github.com/Lx08163356@163.com"}]},"readingTime":{"minutes":3.22,"words":965},"filePathRelative":"01.技术/12.操作系统/1.Linux/5.linux命令行查看设备参数.md","localizedDate":"2024年1月29日","autoDesc":true}`);export{t as comp,u as data};

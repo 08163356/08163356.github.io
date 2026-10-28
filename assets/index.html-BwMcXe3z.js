@@ -1,0 +1,44 @@
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,a as i,o as e}from"./app-BBpi8vMY.js";const l={};function p(t,s){return e(),a("div",null,[...s[0]||(s[0]=[i(`<p>优化前：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>        /*position: absolute;*/</span></span>
+<span class="line"><span>        /*bottom: 50%;*/</span></span>
+<span class="line"><span>        /*left: 50%;*/</span></span>
+<span class="line"><span>        /*height: 100%;*/</span></span>
+<span class="line"><span>        /*width: 100%;*/</span></span>
+<span class="line"><span>        /*color: #d0d0d0;*/</span></span>
+<span class="line"><span>        /*z-index: 3000;*/</span></span>
+<span class="line"><span>        /*position: absolute; left: 50%; top: 50%; margin-left: -50%; margin-top: -28%;*/</span></span>
+<span class="line"><span>        /*background: rgba(0, 0, 0, 0.8);*/</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可优化点及其解释：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>1. 使用缩写属性：将height和width属性合并为一个属性，例如：\`width: 100%; height: 100%;\` 可以写成 \`width:100%;\`</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 尽量避免使用绝对定位：绝对定位会导致元素脱离文档流，增加渲染时间。如果可以使用相对定位或者flex布局来代替绝对定位，就尽量使用。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 避免使用复杂的选择器：使用简单的选择器可以提高CSS解析速度。例如，使用类选择器代替后代选择器。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. 避免使用不必要的样式：例如，将color属性设置为#d0d0d0可能会导致浏览器渲染时间增加。可以考虑使用默认颜色或者更简单的颜色。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>5. 减少使用rgba：使用rgba会增加浏览器的计算时间。如果可以使用不透明颜色来代替rgba，就尽量使用。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>6. 使用预处理器：使用预处理器可以减少CSS文件大小并提高代码的可维护性。例如，可以使用Less或Sass来编写CSS。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>优化后</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>        position: fixed;</span></span>
+<span class="line"><span>        top: 0;</span></span>
+<span class="line"><span>        left: 0;</span></span>
+<span class="line"><span>        width: 100%;</span></span>
+<span class="line"><span>        height: 100%;</span></span>
+<span class="line"><span>        background: #000;</span></span>
+<span class="line"><span>        opacity: 0.8;</span></span>
+<span class="line"><span>        z-index: 3000;</span></span>
+<span class="line"><span>        transform: translate(-50%, 50%);</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>优化前：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>background: #a1a4a7;</span></span>
+<span class="line"><span>      will-change: transform;</span></span>
+<span class="line"><span>      transform: translateZ(100px);</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>以下是一些可以优化这段CSS的建议：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 尽量避免使用will-change属性：will-change属性会预先准备元素的GPU资源，从而加速元素的绘制和合成过程。但是，如果使用不当，会增加GPU负担，从而影响性能。因此，应该避免在所有元素上都使用will-change属性，只在需要提高性能的元素上使用。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 合并transform属性：可以将translateZ属性合并到transform属性中，例如：\`transform: translateZ(100px);\` 可以写成 \`transform: translate3d(0, 0, 100px);\`。这样可以减少CSS代码的大小，从而提高页面加载速度。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 避免使用不必要的样式：例如，将background属性设置为固定颜色可能会导致浏览器渲染时间增加。可以考虑使用默认背景色或更简单的背景色。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>综上所述，以下是优化后的CSS代码：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>​\`\`\`</span></span>
+<span class="line"><span>background-color: transparent;</span></span>
+<span class="line"><span>transform: translate3d(0, 0, 100px);</span></span>
+<span class="line"><span>​\`\`\`</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样的CSS代码更简洁、更易于维护，并且可以提高页面渲染速度。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>优化后</p>`,10)])])}const c=n(l,[["render",p]]),o=JSON.parse(`{"path":"/pages/c7c31b/","title":"【css优化】CSS性能优化","lang":"zh-CN","frontmatter":{"title":"【css优化】CSS性能优化","date":"2024-01-29T04:27:55.000Z","permalink":"/pages/c7c31b/","categories":["性能优化","项目性能分析、优化"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"description":"优化前： 可优化点及其解释： 优化后 优化前： 优化后","head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/c7c31b/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"【css优化】CSS性能优化"}],["meta",{"property":"og:description","content":"优化前： 可优化点及其解释： 优化后 优化前： 优化后"}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2024-02-02T15:55:47.000Z"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-29T04:27:55.000Z"}],["meta",{"property":"article:modified_time","content":"2024-02-02T15:55:47.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"【css优化】CSS性能优化\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-29T04:27:55.000Z\\",\\"dateModified\\":\\"2024-02-02T15:55:47.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[],"git":{"createdTime":1706109170000,"updatedTime":1706889347000,"contributors":[{"name":"Lx08163356@163.com","username":"Lx08163356@163.com","email":"Lx08163356@163.com","commits":4,"url":"https://github.com/Lx08163356@163.com"}]},"readingTime":{"minutes":2.26,"words":678},"filePathRelative":"性能优化/4.项目性能分析、优化/19.【css优化】CSS性能优化.md","localizedDate":"2024年1月29日","autoDesc":true}`);export{c as comp,o as data};

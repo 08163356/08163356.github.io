@@ -1,0 +1,141 @@
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,a as e,o as i}from"./app-BBpi8vMY.js";const l={};function p(t,s){return i(),a("div",null,[...s[0]||(s[0]=[e(`<h2 id="_1-数组操作" tabindex="-1"><a class="header-anchor" href="#_1-数组操作"><span>1.数组操作</span></a></h2><h3 id="_1-1-js-删除数组中指定的元素" tabindex="-1"><a class="header-anchor" href="#_1-1-js-删除数组中指定的元素"><span>1.1 Js 删除数组中指定的元素</span></a></h3><p>delete:删除后，该下标位置元素为undefined</p><div class="language-javascript line-numbers-mode" data-highlighter="shiki" data-ext="javascript" data-title="javascript" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD;">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> arr</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">[</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">index</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">];</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="_1-2-合并多个数组" tabindex="-1"><a class="header-anchor" href="#_1-2-合并多个数组"><span>1.2 合并多个数组</span></a></h3><p><a href="https://segmentfault.com/a/1190000022707012" target="_blank" rel="noopener noreferrer">参考文档，有用</a></p><p><a href="https://segmentfault.com/a/1190000039830842" target="_blank" rel="noopener noreferrer">参考文档，类似上文</a></p><h3 id="异常处理" tabindex="-1"><a class="header-anchor" href="#异常处理"><span>异常处理：</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Uncaught (in promise) TypeError: channelTargetData is not iterable</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>原理：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Symbol.iterator</span></span>
+<span class="line"><span>为每一个对象定义了默认的迭代器。该迭代器可以被 for…of 循环使用。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p>解决办法：</p><p>原来使用的是对象，转化为数组</p><h3 id="_1-3-proxy转化为数组" tabindex="-1"><a class="header-anchor" href="#_1-3-proxy转化为数组"><span>1.3 proxy转化为数组</span></a></h3><h3 id="_1-4-数组去重" tabindex="-1"><a class="header-anchor" href="#_1-4-数组去重"><span>1.4 数组去重</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>//有这样一堆数据</span></span>
+<span class="line"><span>      let x =[&quot;st_SD_480i_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_SD_481p_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_HD_1080i_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_HD_720p_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_4K_2160p_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_8K_4320p_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_nijuuonsei_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_stereo_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_surround_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_moji_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_moji_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_singou_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_singou_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_DcopyX_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_DcopyOK_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_key_dubbing_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_key_dubbing_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_DoutX_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_light_DcopyOK_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_light_Dcopy1_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_light_DcopyX_2160.png&quot;,</span></span>
+<span class="line"><span>        &quot;st_light_DoutX_2160.png&quot;,]</span></span>
+<span class="line"><span>//        去重方式</span></span>
+<span class="line"><span>[...new Set(x)]</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><a href="https://segmentfault.com/a/1190000016418021" target="_blank" rel="noopener noreferrer">参考文档</a></p><h3 id="_1-5-数组转化为对象" tabindex="-1"><a class="header-anchor" href="#_1-5-数组转化为对象"><span>1.5 数组转化为对象</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>let arr = [&#39;啦啦&#39;,&#39;呵呵&#39;,&#39;哥哥&#39;,&#39;嗯嗯&#39;];</span></span>
+<span class="line"><span>let obj = {...arr}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p>方法二：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span> Object.assign({},[1,2,3])</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h2 id="_2-对象操作" tabindex="-1"><a class="header-anchor" href="#_2-对象操作"><span>2.对象操作</span></a></h2><h3 id="_2-1对象转化为数组" tabindex="-1"><a class="header-anchor" href="#_2-1对象转化为数组"><span>2.1对象转化为数组</span></a></h3><p>[...arg]</p><h3 id="_2-2-对象合并" tabindex="-1"><a class="header-anchor" href="#_2-2-对象合并"><span>2.2 对象合并</span></a></h3><p>方法一：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>es2015 Object.assign()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>var o1 = { a: 1 };</span></span>
+<span class="line"><span>var o2 = { b: 2 };</span></span>
+<span class="line"><span>var o3 = { c: 3 };</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>var obj = Object.assign(o1, o2, o3);</span></span>
+<span class="line"><span>console.log(obj); // { a: 1, b: 2, c: 3 }</span></span>
+<span class="line"><span>console.log(o1);  // { a: 1, b: 2, c: 3 }, 注意目标对象自身也会改变。</span></span>
+<span class="line"><span>Object.assign({}, o1, o2, o3);这样对象本身就不会变了</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方法二：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Polyfill</span></span>
+<span class="line"><span>if (!Object.assign) {</span></span>
+<span class="line"><span>  Object.defineProperty(Object, &quot;assign&quot;, {</span></span>
+<span class="line"><span>    enumerable: false,</span></span>
+<span class="line"><span>    configurable: true,</span></span>
+<span class="line"><span>    writable: true,</span></span>
+<span class="line"><span>    value: function(target, firstSource) {</span></span>
+<span class="line"><span>      &quot;use strict&quot;;</span></span>
+<span class="line"><span>      if (target === undefined || target === null)</span></span>
+<span class="line"><span>        throw new TypeError(&quot;Cannot convert first argument to object&quot;);</span></span>
+<span class="line"><span>      var to = Object(target);</span></span>
+<span class="line"><span>      for (var i = 1; i &lt; arguments.length; i++) {</span></span>
+<span class="line"><span>        var nextSource = arguments[i];</span></span>
+<span class="line"><span>        if (nextSource === undefined || nextSource === null) continue;</span></span>
+<span class="line"><span>        var keysArray = Object.keys(Object(nextSource));</span></span>
+<span class="line"><span>        for (var nextIndex = 0, len = keysArray.length; nextIndex &lt; len; nextIndex++) {</span></span>
+<span class="line"><span>          var nextKey = keysArray[nextIndex];</span></span>
+<span class="line"><span>          var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);</span></span>
+<span class="line"><span>          if (desc !== undefined &amp;&amp; desc.enumerable) to[nextKey] = nextSource[nextKey];</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>      return to;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>  });</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-3-遍历对象" tabindex="-1"><a class="header-anchor" href="#_2-3-遍历对象"><span>2.3 遍历对象</span></a></h3><p>JS 遍历对象的主要方法有 <code>for...in</code>、<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>Object.getOwnPropertySymbols()</code>、<code>Reflect.ownKeys()</code>。</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span> </span></span>
+<span class="line"><span> /**</span></span>
+<span class="line"><span>   * @description filter properties 根据key筛选</span></span>
+<span class="line"><span>   * @param originData :data from backend</span></span>
+<span class="line"><span>   * @param targetData :data for frontend</span></span>
+<span class="line"><span>   * @param tag [0:channel | 1:event]</span></span>
+<span class="line"><span>   * @return {*}</span></span>
+<span class="line"><span>   * @private</span></span>
+<span class="line"><span>   */</span></span>
+<span class="line"><span>  _matchTextData(originData, targetData, tag){</span></span>
+<span class="line"><span>    let tData = targetData</span></span>
+<span class="line"><span>    let oData = originData</span></span>
+<span class="line"><span>    //n-n match</span></span>
+<span class="line"><span>    Object.keys(tData).forEach((key) =&gt; {</span></span>
+<span class="line"><span>      tData[key] = oData[0][key];</span></span>
+<span class="line"><span>    });</span></span>
+<span class="line"><span>    // Object.assign(data, temp)</span></span>
+<span class="line"><span>    switch (tag) {</span></span>
+<span class="line"><span>      case &quot;channel&quot;:</span></span>
+<span class="line"><span>        tData.mediaType = oData[1]</span></span>
+<span class="line"><span>        // tData.logo = oData[2]</span></span>
+<span class="line"><span>        break</span></span>
+<span class="line"><span>      case &quot;event&quot;:</span></span>
+<span class="line"><span>        // todo data.ppv = originData[1]</span></span>
+<span class="line"><span>        break</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>    return tData</span></span>
+<span class="line"><span>  }</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><a href="https://www.cnblogs.com/yuer20180726/p/11377897.html" target="_blank" rel="noopener noreferrer">参考文档</a></p><h3 id="_2-4-js两个对象赋值-只把相同key的值赋到另一个对象" tabindex="-1"><a class="header-anchor" href="#_2-4-js两个对象赋值-只把相同key的值赋到另一个对象"><span>2.4.js两个对象赋值，只把相同key的值赋到另一个对象</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>let obj1 = {</span></span>
+<span class="line"><span>	id:&#39;&#39;,</span></span>
+<span class="line"><span>	name:&#39;&#39;</span></span>
+<span class="line"><span> }</span></span>
+<span class="line"><span>  let obj2 = {</span></span>
+<span class="line"><span>	id:&#39;111&#39;,</span></span>
+<span class="line"><span>	name:&#39;222&#39;,</span></span>
+<span class="line"><span>	sex:&#39;nan&#39;</span></span>
+<span class="line"><span> }</span></span>
+<span class="line"><span> Object.keys(obj1).forEach((key) =&gt; {</span></span>
+<span class="line"><span>   obj1[key] = obj2[key];</span></span>
+<span class="line"><span> });</span></span>
+<span class="line"><span> console.log(obj1);</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>结果</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>{</span></span>
+<span class="line"><span>	id:&#39;111&#39;,</span></span>
+<span class="line"><span>	name:&#39;222&#39;,</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方法二：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>	obj = {</span></span>
+<span class="line"><span>		age : 18,</span></span>
+<span class="line"><span>		sex : m,</span></span>
+<span class="line"><span>		status : children</span></span>
+<span class="line"><span>	}</span></span>
+<span class="line"><span>	obj1 = {</span></span>
+<span class="line"><span>		age : &#39;&#39;,</span></span>
+<span class="line"><span>		sex : &#39;&#39;,</span></span>
+<span class="line"><span>		status : &#39;&#39;</span></span>
+<span class="line"><span>	</span></span>
+<span class="line"><span>	}</span></span>
+<span class="line"><span>  Object.keys(obj1).forEach(key=&gt;{obj1[key]=obj[key]})</span></span>
+<span class="line"><span>  console.log(obj1)</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-5-对象批量添加属性" tabindex="-1"><a class="header-anchor" href="#_2-5-对象批量添加属性"><span>2.5 .对象批量添加属性</span></a></h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">参考文档</a></p><h3 id="_2-6-es6利用解构来删除和过滤对象中部分属性" tabindex="-1"><a class="header-anchor" href="#_2-6-es6利用解构来删除和过滤对象中部分属性"><span>2.6.ES6利用解构来删除和过滤对象中部分属性</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>let student={</span></span>
+<span class="line"><span>        age: 21,</span></span>
+<span class="line"><span>        name: &#39;yue&#39;,</span></span>
+<span class="line"><span>        sex: &quot;女&quot;</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>      // func1:挑出几个需要的</span></span>
+<span class="line"><span>      const param = (({name,sex}) =&gt; ({name, sex}))(student)</span></span>
+<span class="line"><span>      console.log(param) // {name: &quot;yue&quot;，sex: &quot;女&quot;}</span></span>
+<span class="line"><span>      // func2:删除几个不需要的</span></span>
+<span class="line"><span>      let {age,...params} = student</span></span>
+<span class="line"><span>      console.log(params)  // {name: &quot;yue&quot;，sex: &quot;女&quot;}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方法二：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>var obj = {</span></span>
+<span class="line"><span>    a: 1,</span></span>
+<span class="line"><span>    b: 2,</span></span>
+<span class="line"><span>    c: 3,</span></span>
+<span class="line"><span>    d: 4,</span></span>
+<span class="line"><span>    e: 5</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>如果只需要里面的 a b c 属性</span></span>
+<span class="line"><span>var {a, b , c} = obj</span></span>
+<span class="line"><span>var obj2 = {a, b , c}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方法三：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>var obj = {</span></span>
+<span class="line"><span>    a: 1,</span></span>
+<span class="line"><span>    b: 2,</span></span>
+<span class="line"><span>    c: 3,</span></span>
+<span class="line"><span>    d: 4,</span></span>
+<span class="line"><span>    e: 5</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>let {d, e，...obj2} = obj</span></span>
+<span class="line"><span>console.log(obj2);</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方法四：</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>const obj2 = (({a, d, e}) =&gt; ({a, d, e}))(obj)</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="异常处理-1" tabindex="-1"><a class="header-anchor" href="#异常处理-1"><span>异常处理</span></a></h3><h4 id="error1" tabindex="-1"><a class="header-anchor" href="#error1"><span>error1</span></a></h4><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Uncaught (in promise) TypeError: Cannot convert undefined or null to object</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>solution：</p>`,53)])])}const c=n(l,[["render",p]]),o=JSON.parse(`{"path":"/pages/97b2fd/","title":"JS数组和对象之间的操作","lang":"zh-CN","frontmatter":{"title":"JS数组和对象之间的操作","date":"2024-01-24T23:08:35.000Z","permalink":"/pages/97b2fd/","categories":["前端三件套","js"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"description":"1.数组操作 1.1 Js 删除数组中指定的元素 delete:删除后，该下标位置元素为undefined 1.2 合并多个数组 参考文档，有用 参考文档，类似上文 异常处理： 原理： 解决办法： 原来使用的是对象，转化为数组 1.3 proxy转化为数组 1.4 数组去重 参考文档 1.5 数组转化为对象 方法二： 2.对象操作 2.1对象转化为数组...","head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/97b2fd/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"JS数组和对象之间的操作"}],["meta",{"property":"og:description","content":"1.数组操作 1.1 Js 删除数组中指定的元素 delete:删除后，该下标位置元素为undefined 1.2 合并多个数组 参考文档，有用 参考文档，类似上文 异常处理： 原理： 解决办法： 原来使用的是对象，转化为数组 1.3 proxy转化为数组 1.4 数组去重 参考文档 1.5 数组转化为对象 方法二： 2.对象操作 2.1对象转化为数组..."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-24T23:08:35.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"JS数组和对象之间的操作\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-24T23:08:35.000Z\\",\\"dateModified\\":null,\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[{"level":2,"title":"1.数组操作","slug":"_1-数组操作","link":"#_1-数组操作","children":[{"level":3,"title":"1.1 Js 删除数组中指定的元素","slug":"_1-1-js-删除数组中指定的元素","link":"#_1-1-js-删除数组中指定的元素","children":[]},{"level":3,"title":"1.2 合并多个数组","slug":"_1-2-合并多个数组","link":"#_1-2-合并多个数组","children":[]},{"level":3,"title":"异常处理：","slug":"异常处理","link":"#异常处理","children":[]},{"level":3,"title":"1.3  proxy转化为数组","slug":"_1-3-proxy转化为数组","link":"#_1-3-proxy转化为数组","children":[]},{"level":3,"title":"1.4 数组去重","slug":"_1-4-数组去重","link":"#_1-4-数组去重","children":[]},{"level":3,"title":"1.5 数组转化为对象","slug":"_1-5-数组转化为对象","link":"#_1-5-数组转化为对象","children":[]}]},{"level":2,"title":"2.对象操作","slug":"_2-对象操作","link":"#_2-对象操作","children":[{"level":3,"title":"2.1对象转化为数组","slug":"_2-1对象转化为数组","link":"#_2-1对象转化为数组","children":[]},{"level":3,"title":"2.2 对象合并","slug":"_2-2-对象合并","link":"#_2-2-对象合并","children":[]},{"level":3,"title":"2.3 遍历对象","slug":"_2-3-遍历对象","link":"#_2-3-遍历对象","children":[]},{"level":3,"title":"2.4.js两个对象赋值，只把相同key的值赋到另一个对象","slug":"_2-4-js两个对象赋值-只把相同key的值赋到另一个对象","link":"#_2-4-js两个对象赋值-只把相同key的值赋到另一个对象","children":[]},{"level":3,"title":"2.5 .对象批量添加属性","slug":"_2-5-对象批量添加属性","link":"#_2-5-对象批量添加属性","children":[]},{"level":3,"title":"2.6.ES6利用解构来删除和过滤对象中部分属性","slug":"_2-6-es6利用解构来删除和过滤对象中部分属性","link":"#_2-6-es6利用解构来删除和过滤对象中部分属性","children":[]},{"level":3,"title":"异常处理","slug":"异常处理-1","link":"#异常处理-1","children":[{"level":4,"title":"error1","slug":"error1","link":"#error1","children":[]}]}]}],"git":{},"readingTime":{"minutes":2.56,"words":769},"filePathRelative":"14.前端三件套/3.js/24.JS数组和对象之间的操作.md","localizedDate":"2024年1月25日","autoDesc":true}`);export{c as comp,o as data};

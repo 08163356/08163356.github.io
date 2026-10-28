@@ -1,0 +1,40 @@
+import{_ as e}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as s,a,o as i}from"./app-BBpi8vMY.js";const t={};function l(p,n){return i(),s("div",null,[...n[0]||(n[0]=[a(`<p>一、adb 如何模拟touch事件</p><p>模拟上下滑动</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>情况2:模拟滑动轨迹（可下载并采用aPaint软件进行试验）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>如下例是在aPaint软件上画出一条开始于（100,200），止于（108,200）的水平直线</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 0 400 //start from point (400,200)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 1 200</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 1 330 1 //touch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0</span></span>
+<span class="line"><span>&lt;!-- more --&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 0 401 //step to point (101,200)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 0 508 //end point(108,200)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 1 330 0 //untouch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3"><li>其他模拟touch event的方法 还可以通过sendevent来模拟touchevent，不过比较繁琐，方法如下，</li></ol><p>a. 设置x/y坐标</p><p>adb shell sendevent /dev/input/event1 3 0 x adb shell sendevent /dev/input/event1 3 1 y b. 发送touch 事件(必须使用0 0 0配对) adb shell sendevent /dev/input/event1 1 330 1 adb shell sendevent /dev/input/event1 0 0 0 c. 释放touch事件（必须使用0 0 0配对） adb shell sendevent /dev/input/event1 1 330 0 adb shell sendevent /dev/input/event1 0 0 0</p><p>二、参考文档</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>情况1：在某坐标点上touch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>如在屏幕的x坐标为40，y坐标为210的点上touch一下，命令如下</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 0 40</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 3 1 210</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 1 330 1 //touch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0 //it must have</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 1 330 0 //untouch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>adb shell sendevent /dev/input/event0 0 0 0 //it must have</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>注：以上六组命令必须配合使用，缺一不可</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><a href="https://blog.csdn.net/jgw2008/article/details/52913543?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2.pc_relevant_antiscan&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2.pc_relevant_antiscan&amp;utm_relevant_index=5" target="_blank" rel="noopener noreferrer">该文档比较实用</a></p>`,9)])])}const c=e(t,[["render",l]]),r=JSON.parse(`{"path":"/pages/548dc4/","title":"【adb】adb发送touch事件","lang":"zh-CN","frontmatter":{"title":"【adb】adb发送touch事件","date":"2024-01-29T04:23:35.000Z","permalink":"/pages/548dc4/","categories":["技术","android"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"description":"一、adb 如何模拟touch事件 模拟上下滑动 其他模拟touch event的方法 还可以通过sendevent来模拟touchevent，不过比较繁琐，方法如下， a. 设置x/y坐标 adb shell sendevent /dev/input/event1 3 0 x adb shell sendevent /dev/input/event1...","head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/548dc4/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"【adb】adb发送touch事件"}],["meta",{"property":"og:description","content":"一、adb 如何模拟touch事件 模拟上下滑动 其他模拟touch event的方法 还可以通过sendevent来模拟touchevent，不过比较繁琐，方法如下， a. 设置x/y坐标 adb shell sendevent /dev/input/event1 3 0 x adb shell sendevent /dev/input/event1..."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2024-02-02T15:55:47.000Z"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-29T04:23:35.000Z"}],["meta",{"property":"article:modified_time","content":"2024-02-02T15:55:47.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"【adb】adb发送touch事件\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-29T04:23:35.000Z\\",\\"dateModified\\":\\"2024-02-02T15:55:47.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[],"git":{"createdTime":1706109170000,"updatedTime":1706889347000,"contributors":[{"name":"Lx08163356@163.com","username":"Lx08163356@163.com","email":"Lx08163356@163.com","commits":3,"url":"https://github.com/Lx08163356@163.com"}]},"readingTime":{"minutes":1.42,"words":426},"filePathRelative":"01.技术/1.android/4.【adb】adb发送touch事件.md","localizedDate":"2024年1月29日","autoDesc":true}`);export{c as comp,r as data};

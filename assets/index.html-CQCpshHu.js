@@ -1,0 +1,19 @@
+import{_ as a}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as n,a as s,o as t}from"./app-BBpi8vMY.js";const i={};function l(p,e){return t(),n("div",null,[...e[0]||(e[0]=[s(`<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>  getDayAfterSevenDate(date) {</span></span>
+<span class="line"><span>    console.log(&quot;specify date: get today and the day after 7 day&quot;)</span></span>
+<span class="line"><span>    let sevenDayDate = []</span></span>
+<span class="line"><span>    let jpWeek = {...INFO_DISPLAY_FIELDS.JAPAN_WEEK}</span></span>
+<span class="line"><span>    let currDate = new Date(date);</span></span>
+<span class="line"><span>    let increase = 0</span></span>
+<span class="line"><span>    let sevevDay = 0</span></span>
+<span class="line"><span>    do {</span></span>
+<span class="line"><span>      currDate.setDate(currDate.getDate() + increase);</span></span>
+<span class="line"><span>      let day = currDate.getDate()</span></span>
+<span class="line"><span>      let week = jpWeek[currDate.getDay()]</span></span>
+<span class="line"><span>      let date = &quot; &quot;.concat(day, &quot; (&quot;, week, &quot;)&quot;)</span></span>
+<span class="line"><span>      sevenDayDate.push(date)</span></span>
+<span class="line"><span>      sevevDay++</span></span>
+<span class="line"><span>&lt;!-- more --&gt;</span></span>
+<span class="line"><span>      increase = 1</span></span>
+<span class="line"><span>    } while (sevevDay &lt; 8)</span></span>
+<span class="line"><span>    return sevenDayDate</span></span>
+<span class="line"><span>  };</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,1)])])}const d=a(i,[["render",l]]),o=JSON.parse(`{"path":"/pages/e60264/","title":"获取当前日期的前几天和后几天","lang":"zh-CN","frontmatter":{"title":"获取当前日期的前几天和后几天","date":"2024-01-24T23:08:35.000Z","permalink":"/pages/e60264/","categories":["前端三件套","js"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/e60264/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"获取当前日期的前几天和后几天"}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-24T23:08:35.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"获取当前日期的前几天和后几天\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-24T23:08:35.000Z\\",\\"dateModified\\":null,\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[],"git":{},"readingTime":{"minutes":0.31,"words":94},"filePathRelative":"14.前端三件套/3.js/48.获取当前日期的前几天和后几天.md","localizedDate":"2024年1月25日"}`);export{d as comp,o as data};

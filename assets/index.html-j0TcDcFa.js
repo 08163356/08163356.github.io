@@ -1,0 +1,23 @@
+import{_ as s}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,a as e,o as i}from"./app-BBpi8vMY.js";const p={};function l(t,n){return i(),a("div",null,[...n[0]||(n[0]=[e(`<p>查看linux的CPG和GPU信息命令是什么</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>在Linux系统中，可以使用以下命令来查看CPU和GPU的信息：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 查看CPU信息：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`lscpu\`：显示CPU的详细信息，包括CPU型号、核心数、线程数、缓存大小等。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`cat /proc/cpuinfo\`：显示CPU的详细信息，包括CPU型号、核心数、线程数、缓存大小等。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`top\`：实时显示系统的进程和资源占用情况，包括CPU的使用率。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`htop\`：类似于top命令，但是可以更方便地查看进程和资源占用情况。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;!-- more --&gt;</span></span>
+<span class="line"><span>2. 查看GPU信息：</span></span>
+<span class="line"><span>- \`lspci | grep -i vga\`：显示系统中的显卡信息。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`nvidia-smi\`：显示NVIDIA显卡的详细信息，包括显卡型号、驱动版本、温度、功耗等。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`glxinfo | grep -i vendor\`：显示系统中OpenGL的供应商信息，包括显卡型号和驱动版本。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- \`vulkaninfo\`：显示系统中Vulkan的信息，包括显卡型号和驱动版本。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>需要注意的是，不同的Linux系统和发行版可能会有不同的命令和工具来查看CPU和GPU的信息。以上命令只是一些常用的命令，可以根据具体情况进行选择和使用。同时，可以使用其他工具和软件来更方便地查看CPU和GPU的信息，例如CPU-Z、GPU-Z等。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,2)])])}const d=s(p,[["render",l]]),o=JSON.parse(`{"path":"/pages/5cb683/","title":"查看linux的CPG和GPU信息","lang":"zh-CN","frontmatter":{"title":"查看linux的CPG和GPU信息","date":"2024-01-29T04:23:38.000Z","permalink":"/pages/5cb683/","categories":["技术","操作系统","Linux"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"description":"查看linux的CPG和GPU信息命令是什么","head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/5cb683/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"查看linux的CPG和GPU信息"}],["meta",{"property":"og:description","content":"查看linux的CPG和GPU信息命令是什么"}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2024-02-02T15:55:47.000Z"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-29T04:23:38.000Z"}],["meta",{"property":"article:modified_time","content":"2024-02-02T15:55:47.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"查看linux的CPG和GPU信息\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-29T04:23:38.000Z\\",\\"dateModified\\":\\"2024-02-02T15:55:47.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[],"git":{"createdTime":1706109170000,"updatedTime":1706889347000,"contributors":[{"name":"Lx08163356@163.com","username":"Lx08163356@163.com","email":"Lx08163356@163.com","commits":3,"url":"https://github.com/Lx08163356@163.com"}]},"readingTime":{"minutes":1.24,"words":371},"filePathRelative":"01.技术/12.操作系统/1.Linux/15.查看linux的CPG和GPU信息.md","localizedDate":"2024年1月29日","autoDesc":true}`);export{d as comp,o as data};

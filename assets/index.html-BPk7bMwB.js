@@ -1,0 +1,35 @@
+import{_ as s}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,a as i,o as e}from"./app-BBpi8vMY.js";const t={};function l(p,n){return e(),a("div",null,[...n[0]||(n[0]=[i(`<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;div class=&quot;programImgInfo&quot;&gt;</span></span>
+<span class="line"><span>    &lt;span v-for=&quot;(item, index) in imgGroup&quot;</span></span>
+<span class="line"><span>          :key=&quot;item.name&quot;</span></span>
+<span class="line"><span>          :style=&quot;item.imgStyle&quot;&gt;</span></span>
+<span class="line"><span>        &lt;img v-if=&quot;item.imgPath&quot; :src=&quot;item.imgPath&quot;&gt;</span></span>
+<span class="line"><span>    &lt;/span&gt;</span></span>
+<span class="line"><span>&lt;/div&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;!-- more --&gt;</span></span>
+<span class="line"><span>setup() {</span></span>
+<span class="line"><span>let imgGroup = reactive([</span></span>
+<span class="line"><span>  {name: &quot;resolution&quot;, imgStyle: {width: &quot;124px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;sound&quot;, imgStyle: {width: &quot;84px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;subtitle&quot;, imgStyle: {width: &quot;50px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;signal&quot;, imgStyle: {width: &quot;84px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;dCopy&quot;, imgStyle: {width: &quot;130px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;optCopy&quot;, imgStyle: {width: &quot;130px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;ageLimit&quot;, imgStyle: {width: &quot;78px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null},</span></span>
+<span class="line"><span>  {name: &quot;ppv&quot;, imgStyle: {width: &quot;138px&quot;, height: &quot;32px&quot;, background: &quot;rgb(23, 23, 24)&quot;}, imgPath: null}</span></span>
+<span class="line"><span>])</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return {</span></span>
+<span class="line"><span>imgGroup</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>.programImgInfo {</span></span>
+<span class="line"><span>    display: flex;</span></span>
+<span class="line"><span>    flex-wrap: wrap;</span></span>
+<span class="line"><span>    align-items: center;</span></span>
+<span class="line"><span>    margin-left: 70px;</span></span>
+<span class="line"><span>    grid-gap: 10px;</span></span>
+<span class="line"><span>    &gt;span {</span></span>
+<span class="line"><span>        width: calc((100% - 60px) / 5)</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>     &amp;:nth-child(4n + 4) {//从某行开始margin-right: 0; </span></span>
+<span class="line"><span>        margin-right: 0; </span></span>
+<span class="line"><span>      }  </span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,3)])])}const u=s(t,[["render",l]]),r=JSON.parse(`{"path":"/pages/6f2c8a/","title":"flex布局--一行显示固定个数","lang":"zh-CN","frontmatter":{"title":"flex布局--一行显示固定个数","date":"2024-01-24T23:08:35.000Z","permalink":"/pages/6f2c8a/","categories":["前端三件套","CSS"],"tags":[],"author":{"name":"aXing","link":"https://github.com/08163356"},"head":[["meta",{"property":"og:url","content":"https://blog.axingit.top/pages/6f2c8a/"}],["meta",{"property":"og:site_name","content":"aXing's blog"}],["meta",{"property":"og:title","content":"flex布局--一行显示固定个数"}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"article:author","content":"aXing"}],["meta",{"property":"article:published_time","content":"2024-01-24T23:08:35.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"flex布局--一行显示固定个数\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-24T23:08:35.000Z\\",\\"dateModified\\":null,\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"aXing\\",\\"link\\":\\"https://github.com/08163356\\"}]}"]]},"headers":[],"git":{},"readingTime":{"minutes":0.71,"words":214},"filePathRelative":"14.前端三件套/1.CSS/7.flex布局--一行显示固定个数.md","localizedDate":"2024年1月25日"}`);export{u as comp,r as data};
