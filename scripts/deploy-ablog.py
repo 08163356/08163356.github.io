@@ -51,6 +51,7 @@ SERVER = "8.135.9.12"
 PORT = 22
 USER = "root"
 REMOTE_BLOG = "/var/www/blog"
+SSH_KEY = Path.home() / ".ssh" / "id_ed25519_daily"
 VERIFY_PATHS = (
     "/pages/oo-index/",
     "/pages/perf-index/",
@@ -145,6 +146,7 @@ def create_ssh() -> paramiko.SSHClient:
             timeout=30,
             allow_agent=True,
             look_for_keys=True,
+            key_filename=str(SSH_KEY) if SSH_KEY.is_file() else None,
         )
         print(f"SSH 已连接（密钥） {USER}@{SERVER}")
         return ssh
